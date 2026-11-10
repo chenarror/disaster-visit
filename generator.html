@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>校園災害防救計畫｜PDF 自動生成互動網站（AI 原型工具）</title>
+<style>
+:root{--bg:#faf6ec;--card:#fff;--ink:#2b2418;--mute:#6f6553;--line:#e6dcc4;--amb:#b8741a;--amb2:#f3d9a4;--grn:#5f7a3a;--grn2:#dfe8cc;--red:#b4452f;--red2:#f4d3ca;--blu:#2f5d7c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:18px 16px 60px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:18px}
+header small{display:block;color:var(--amb);font-weight:700;font-size:13px}
+h1{margin:4px 0 0;font-size:clamp(20px,2.8vw,28px);line-height:1.25}
+h2{font-size:17px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+h2 b{background:var(--amb);color:#fff;border-radius:7px;padding:1px 8px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.grid2{display:grid;gap:14px}@media(min-width:800px){.grid2{grid-template-columns:1fr 1fr}}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:5px}
+input[type="text"],input[type="password"],select,textarea{width:100%;font:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}
+textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;min-height:380px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--amb);color:#fff;border:1px solid var(--amb);border-radius:10px;padding:9px 16px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.o{background:#fff;color:var(--amb)}
+.btn.grn{background:var(--grn);border-color:var(--grn)}
+.btn.sm{padding:5px 11px;font-size:13px;border-radius:8px}
+.drop{border:2px dashed var(--amb);border-radius:12px;padding:24px 16px;text-align:center;background:var(--bg);cursor:pointer;transition:background .15s}
+.drop.over{background:var(--amb2)}
+.note{font-size:12.5px;color:var(--mute);margin:6px 0 0}
+.warn-box{background:var(--red2);border-left:4px solid var(--red);border-radius:8px;padding:10px 12px;font-size:13.5px;margin-top:10px}
+.ok-box{background:var(--grn2);border-left:4px solid var(--grn);border-radius:8px;padding:10px 12px;font-size:13.5px;margin-top:10px}
+.prog{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:10px 0 6px}
+.prog span{display:block;height:100%;width:0%;background:var(--amb);transition:width .25s}
+.log{background:#1d1a14;color:#f1e9d8;border-radius:10px;padding:10px 12px;font:12.5px/1.5 ui-monospace,Menlo,monospace;max-height:170px;overflow:auto;white-space:pre-wrap}
+.tabs{display:flex;gap:8px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px;flex-wrap:wrap}
+.tabs button{font:inherit;font-weight:700;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button.on{background:var(--amb);border-color:var(--amb);color:#fff}
+.hide{display:none!important}
+iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line);border-radius:12px;background:#faf6ec}
+.img-mapper{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.im-card{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);display:flex;flex-direction:column;gap:6px}
+.im-card img{width:100%;height:150px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:7px;cursor:zoom-in}
+.im-meta{font-size:12px;color:var(--mute)}
+#lb{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:14px;cursor:zoom-out}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;object-fit:contain}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <small>永康國小防災校園計畫網站・自動化生成器原型</small>
+      <h1>上傳學校防災計畫書 PDF → 自動產出互動式防災網站</h1>
+    </div>
+    <div class="row">
+      <a class="btn o sm" href="./index.html">← 回永康國小防災網站</a>
+      <button type="button" class="btn grn sm" id="btn-demo">⚡ 載入永康國小範例資料試玩</button>
+    </div>
+  </header>
+
+  <div class="grid2">
+    <div class="card">
+      <h2><b>步驟 1</b>Google AI Studio API 設定</h2>
+      <label for="api-key">Gemini API Key（由 Google AI Studio 取得）</label>
+      <div class="row" style="margin-top:0;flex-wrap:nowrap">
+        <input type="password" id="api-key" placeholder="貼上 AIza... 開頭的 API Key" autocomplete="off">
+        <button type="button" class="btn o sm" id="toggle-key" style="flex:none">顯示</button>
+      </div>
+      <div class="row" style="justify-content:space-between">
+        <label style="font-weight:400;font-size:13px;margin:0;display:flex;align-items:center;gap:6px">
+          <input type="checkbox" id="save-key"> 暫存 Key 於本機瀏覽器（localStorage）
+        </label>
+        <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" style="font-size:13px;color:var(--amb)">前往 AI Studio 申請 Key ↗</a>
+      </div>
+      <div style="margin-top:10px">
+        <label for="model-sel">選擇 Gemini 模型</label>
+        <select id="model-sel">
+          <option value="gemini-3.8-flash" selected>gemini-3.8-flash（推薦｜均衡快速，支援整份 PDF 解析）</option>
+          <option value="gemini-4-argon">gemini-4-argon（最高精度｜適合複雜表格與長文件）</option>
+          <option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite（輕量快速｜省額度測試）</option>
+        </select>
+      </div>
+      <div class="warn-box">
+        <b>個資與隱私提醒：</b>計畫書通常包含師長手機號碼與 Email。Key 只會由您的瀏覽器直接傳送給 Google API，不會經過本網站伺服器；但若使用 Google AI Studio 免費層級，上傳內容可能被 Google 用於模型改善（付費層級不會）。
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><b>步驟 2</b>上傳《校園災害防救計畫書》PDF</h2>
+      <div class="drop" id="drop-zone">
+        <input type="file" id="pdf-input" accept="application/pdf" class="hide">
+        <div style="font-size:28px;margin-bottom:4px">📄</div>
+        <b>點擊選擇或拖曳 PDF 計畫書到此處</b>
+        <p class="note" id="file-info">支援教育部格式之學校災害防救計畫書 PDF（建議 50MB 以內）</p>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button type="button" class="btn" id="btn-run" disabled>🚀 開始 AI 解析並生成網站</button>
+        <span class="note" id="status-short" style="margin:0">請先選擇 PDF 檔案</span>
+      </div>
+      <div class="prog"><span id="prog-bar"></span></div>
+      <div class="log" id="log-box">就緒。等待上傳 PDF 檔案，或點右上角「載入永康國小範例資料試玩」。</div>
+    </div>
+  </div>
+
+  <div class="card hide" id="workspace">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px">
+      <div class="tabs" style="margin:0;border:0;padding:0">
+        <button type="button" class="on" data-tab="preview">1. 網站即時預覽</button>
+        <button type="button" data-tab="images">2. 圖片對應與補圖（<span id="img-count">0</span>張）</button>
+        <button type="button" data-tab="json">3. 檢視／微調 JSON 資料</button>
+      </div>
+      <div class="row" style="margin:0">
+        <label style="font-weight:400;font-size:13px;margin:0;display:flex;align-items:center;gap:5px">
+          <input type="checkbox" id="include-pdf" checked> ZIP 包含原始 PDF
+        </label>
+        <button type="button" class="btn grn" id="btn-zip">⬇ 下載完整網站 ZIP（可直傳 GitHub）</button>
+      </div>
+    </div>
+
+    <div id="tab-preview">
+      <iframe id="preview-frame" class="prev" title="生成網站即時預覽"></iframe>
+      <p class="note">上方即為使用共用模板即時渲染的完整互動網站，可點擊切換組別篩選、校舍建築、流程腳本與放大圖片。</p>
+    </div>
+
+    <div id="tab-images" class="hide">
+      <div class="ok-box" style="margin-top:0;margin-bottom:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+        <div>
+          <b>圖資檢視與調整：</b>已自動從 PDF 擷取內嵌圖片並由 AI 嘗試配對。若有缺圖（例如向量繪製的地圖），可在右側輸入頁碼截圖補入。
+        </div>
+        <div class="row" style="margin:0">
+          <input type="number" id="capture-page-num" min="1" placeholder="頁碼" style="width:84px;padding:5px 8px">
+          <button type="button" class="btn o sm" id="btn-capture-page">+ 擷取該頁整頁圖</button>
+        </div>
+      </div>
+      <div class="img-mapper" id="img-mapper"></div>
+    </div>
+
+    <div id="tab-json" class="hide">
+      <p class="note" style="margin:0 0 8px">可直接編輯下方 JSON 內容，完成後按「套用更新預覽」即可即時刷新網頁與匯出結果。</p>
+      <textarea id="json-editor" spellcheck="false"></textarea>
+      <div class="row">
+        <button type="button" class="btn sm" id="btn-apply-json">✓ 套用 JSON 更新預覽</button>
+        <button type="button" class="btn o sm" id="btn-download-json">下載 data.json</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lb"><img alt="放大檢視圖片"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function(){
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+
+  const $ = (s) => document.querySelector(s);
+  const keyInput = $("#api-key");
+  const saveKeyChk = $("#save-key");
+  const modelSel = $("#model-sel");
+  const pdfInput = $("#pdf-input");
+  const dropZone = $("#drop-zone");
+  const btnRun = $("#btn-run");
+  const progBar = $("#prog-bar");
+  const logBox = $("#log-box");
+  const statusShort = $("#status-short");
+  const workspace = $("#workspace");
+  const previewFrame = $("#preview-frame");
+
+  let currentFile = null;
+  let currentPdfBytes = null;
+  let pdfDocCache = null;
+  let extractedImages = []; // { id, page, width, height, ext, mime, dataUrl, bytes, contextText }
+  let currentPlanData = null;
+  let templateHtmlCache = null;
+
+  // Restore saved API key if opted in
+  const savedKey = localStorage.getItem("yk_gemini_api_key");
+  if (savedKey) {
+    keyInput.value = savedKey;
+    saveKeyChk.checked = true;
+  }
+  saveKeyChk.addEventListener("change", () => {
+    if (saveKeyChk.checked && keyInput.value.trim()) {
+      localStorage.setItem("yk_gemini_api_key", keyInput.value.trim());
+    } else {
+      localStorage.removeItem("yk_gemini_api_key");
+    }
+  });
+  keyInput.addEventListener("input", () => {
+    if (saveKeyChk.checked) {
+      if (keyInput.value.trim()) localStorage.setItem("yk_gemini_api_key", keyInput.value.trim());
+      else localStorage.removeItem("yk_gemini_api_key");
+    }
+  });
+  $("#toggle-key").addEventListener("click", () => {
+    const isPwd = keyInput.type === "password";
+    keyInput.type = isPwd ? "text" : "password";
+    $("#toggle-key").textContent = isPwd ? "隱藏" : "顯示";
+  });
+
+  function log(msg) {
+    const ts = new Date().toTimeString().slice(0, 8);
+    logBox.textContent += `\n[${ts}] ${msg}`;
+    logBox.scrollTop = logBox.scrollHeight;
+  }
+  function setProg(pct, text) {
+    progBar.style.width = `${pct}%`;
+    if (text) statusShort.textContent = text;
+  }
+
+  // File Selection & Drop
+  dropZone.addEventListener("click", () => pdfInput.click());
+  dropZone.addEventListener("dragover", e => { e.preventDefault(); dropZone.classList.add("over"); });
+  dropZone.addEventListener("dragleave", () => dropZone.classList.remove("over"));
+  dropZone.addEventListener("drop", e => {
+    e.preventDefault();
+    dropZone.classList.remove("over");
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) handlePdfFile(e.dataTransfer.files[0]);
+  });
+  pdfInput.addEventListener("change", e => {
+    if (e.target.files && e.target.files[0]) handlePdfFile(e.target.files[0]);
+  });
+
+  async function handlePdfFile(file) {
+    if (!file.name.toLowerCase().endsWith(".pdf") && file.type !== "application/pdf") {
+      alert("請選擇 PDF 格式的檔案。");
+      return;
+    }
+    currentFile = file;
+    const mb = (file.size / 1024 / 1024).toFixed(2);
+    logBox.textContent = `[準備中] 已選擇檔案：${file.name}（${mb} MB）`;
+    setProg(5, "讀取 PDF 頁數…");
+    currentPdfBytes = new Uint8Array(await file.arrayBuffer());
+    try {
+      pdfDocCache = await pdfjsLib.getDocument({ data: currentPdfBytes.slice(0) }).promise;
+      $("#file-info").innerHTML = `<b>${file.name}</b>｜大小 ${mb} MB｜共 <b>${pdfDocCache.numPages}</b> 頁`;
+      btnRun.disabled = false;
+      setProg(10, `PDF 已就緒（${pdfDocCache.numPages} 頁）`);
+      log(`PDF 讀取成功，共 ${pdfDocCache.numPages} 頁。`);
+    } catch (err) {
+      alert("PDF 解析失敗，請確認檔案未加密或毀損。");
+      console.error(err);
+    }
+  }
+
+  // Convert PDF.js Image Object to Canvas DataURL & Uint8Array
+  async function pdfImgObjToDataUrl(imgObj) {
+    if (!imgObj || !imgObj.width || !imgObj.height) return null;
+    const w = imgObj.width, h = imgObj.height;
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+
+    if (imgObj.bitmap) {
+      ctx.drawImage(imgObj.bitmap, 0, 0);
+    } else if (imgObj.data) {
+      const imgData = ctx.createImageData(w, h);
+      const src = imgObj.data;
+      const dst = imgData.data;
+      if (src.length === w * h * 4) {
+        dst.set(src);
+      } else if (src.length === w * h * 3) {
+        for (let i = 0, j = 0; i < src.length; i += 3, j += 4) {
+          dst[j] = src[i];
+          dst[j + 1] = src[i + 1];
+          dst[j + 2] = src[i + 2];
+          dst[j + 3] = 255;
+        }
+      } else if (src.length === w * h) {
+        for (let i = 0, j = 0; i < src.length; i++, j += 4) {
+          const v = src[i];
+          dst[j] = dst[j + 1] = dst[j + 2] = v;
+          dst[j + 3] = 255;
+        }
+      } else {
+        return null;
+      }
+      ctx.putImageData(imgData, 0, 0);
+    } else {
+      return null;
+    }
+
+    const useJpeg = w * h > 300000;
+    const mime = useJpeg ? "image/jpeg" : "image/png";
+    const ext = useJpeg ? "jpg" : "png";
+    const dataUrl = canvas.toDataURL(mime, 0.88);
+    const raw = atob(dataUrl.slice(dataUrl.indexOf(",") + 1));
+    const bytes = new Uint8Array(raw.length);
+    for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+    return { dataUrl, bytes, mime, ext, width: w, height: h };
+  }
+
+  function resolvePdfObj(objs, name) {
+    return new Promise((resolve) => {
+      try {
+        if (objs.has(name)) {
+          resolve(objs.get(name));
+        } else {
+          objs.get(name, (val) => resolve(val));
+          setTimeout(() => resolve(null), 1500);
+        }
+      } catch (_) {
+        resolve(null);
+      }
+    });
+  }
+
+  async function extractImagesAndCaptions(pdfDoc) {
+    const imgs = [];
+    const seenFingerprints = new Set();
+    const pageContexts = [];
+    const total = pdfDoc.numPages;
+
+    for (let p = 1; p <= total; p++) {
+      setProg(12 + Math.round((p / total) * 30), `正在擷取第 ${p}/${total} 頁圖文…`);
+      const page = await pdfDoc.getPage(p);
+      const tc = await page.getTextContent();
+      const text = tc.items.map(it => it.str).join(" ").replace(/\s+/g, " ").trim();
+      const snippet = text.slice(0, 320);
+      pageContexts.push({ page: p, snippet });
+
+      const ops = await page.getOperatorList();
+      let pageImgIdx = 0;
+      for (let i = 0; i < ops.fnArray.length; i++) {
+        const fn = ops.fnArray[i];
+        let imgObj = null;
+        if (fn === pdfjsLib.OPS.paintImageXObject || fn === pdfjsLib.OPS.paintJpegXObject) {
+          const objName = ops.argsArray[i][0];
+          imgObj = await resolvePdfObj(page.objs, objName);
+        } else if (fn === pdfjsLib.OPS.paintInlineImageXObject) {
+          imgObj = ops.argsArray[i][0];
+        }
+        if (!imgObj) continue;
+        const w = imgObj.width || 0, h = imgObj.height || 0;
+        if (Math.max(w, h) < 220 || w * h < 40000) continue;
+
+        const converted = await pdfImgObjToDataUrl(imgObj);
+        if (!converted) continue;
+        // Fingerprint to avoid repeated logos/headers
+        const fp = `${w}x${h}_${converted.bytes.length}_${converted.dataUrl.slice(80, 140)}`;
+        if (seenFingerprints.has(fp)) continue;
+        seenFingerprints.add(fp);
+
+        pageImgIdx++;
+        const id = `img_p${String(p).padStart(2, "0")}_${pageImgIdx}.${converted.ext}`;
+        imgs.push({
+          id,
+          page: p,
+          width: w,
+          height: h,
+          ext: converted.ext,
+          mime: converted.mime,
+          dataUrl: converted.dataUrl,
+          bytes: converted.bytes,
+          contextText: snippet,
+          assignedLabel: ""
+        });
+      }
+      page.cleanup();
+    }
+    return { imgs, pageContexts };
+  }
+
+  function bytesToBase64(bytes) {
+    let binary = "";
+    const chunk = 0x8000;
+    for (let i = 0; i < bytes.length; i += chunk) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+    }
+    return btoa(binary);
+  }
+
+  const PLAN_SCHEMA = {
+    type: "object",
+    properties: {
+      meta: {
+        type: "object",
+        properties: {
+          year: { type: "string" },
+          fullName: { type: "string" },
+          schoolName: { type: "string" },
+          versionInfo: { type: "string" },
+          address: { type: "string" },
+          coordinates: { type: "string" },
+          geography: { type: "string" },
+          extraInfo: { type: "string" },
+          hazardTypes: { type: "string" },
+          lastCheckDate: { type: "string" }
+        },
+        required: ["year", "fullName", "schoolName"]
+      },
+      leaders: {
+        type: "object",
+        properties: {
+          coreList: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: { role: { type: "string" }, detail: { type: "string" } },
+              required: ["role", "detail"]
+            }
+          }
+        },
+        required: ["coreList"]
+      },
+      kpis: {
+        type: "object",
+        properties: {
+          staffTotal: { type: "string" },
+          staffDetail: { type: "string" },
+          studentTotal: { type: "string" },
+          studentDetail: { type: "string" },
+          classTotal: { type: "string" },
+          classDetail: { type: "string" },
+          buildingSummary: { type: "string" },
+          buildingDetail: { type: "string" }
+        },
+        required: ["staffTotal", "studentTotal", "classTotal", "buildingSummary"]
+      },
+      revisionHistory: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { date: { type: "string" }, version: { type: "string" }, description: { type: "string" } },
+          required: ["date", "description"]
+        }
+      },
+      hazardHistory: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            date: { type: "string" }, type: { type: "string" }, location: { type: "string" },
+            summary: { type: "string" }, casualties: { type: "string" }, recovery: { type: "string" }
+          },
+          required: ["date", "type", "summary"]
+        }
+      },
+      staffBreakdown: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { label: { type: "string" }, count: { type: "number" }, note: { type: "string" } },
+          required: ["label", "count"]
+        }
+      },
+      studentBreakdown: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { label: { type: "string" }, count: { type: "number" }, colorIndex: { type: "number" }, note: { type: "string" } },
+          required: ["label", "count"]
+        }
+      },
+      peaceResponsibilities: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { task: { type: "string" }, lead: { type: "string" }, support: { type: "string" } },
+          required: ["task", "lead"]
+        }
+      },
+      teamsSummary: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { name: { type: "string" }, leader: { type: "string" }, countLabel: { type: "string" }, note: { type: "string" } },
+          required: ["name", "leader"]
+        }
+      },
+      teamMembers: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            teamIndex: { type: "number" }, role: { type: "string" },
+            titleName: { type: "string" }, location: { type: "string" }, duty: { type: "string" }
+          },
+          required: ["teamIndex", "role", "titleName", "location", "duty"]
+        }
+      },
+      principles: {
+        type: "object",
+        properties: {
+          earthquake: { type: "string" },
+          flood: { type: "string" },
+          rainBackup: { type: "string" },
+          coreSteps: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: { title: { type: "string" }, desc: { type: "string" } },
+              required: ["title", "desc"]
+            }
+          }
+        },
+        required: ["earthquake", "flood", "coreSteps"]
+      },
+      drillSettings: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { label: { type: "string" }, value: { type: "string" } },
+          required: ["label", "value"]
+        }
+      },
+      timelinePhases: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            phase: { type: "string" }, title: { type: "string" }, note: { type: "string" },
+            actions: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: { teamIndex: { type: "number" }, stepCode: { type: "string" }, text: { type: "string" } },
+                required: ["teamIndex", "text"]
+              }
+            }
+          },
+          required: ["phase", "title", "actions"]
+        }
+      },
+      buildings: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            id: { type: "string" }, code: { type: "string" }, name: { type: "string" },
+            year: { type: "string" }, floors: { type: "string" }, struct: { type: "string" },
+            shelter: { type: "string" }, checkDate: { type: "string" },
+            rooms: { type: "string" }, cap: { type: "string" },
+            toilet: { type: "string" }, accToilet: { type: "string" },
+            stairs: { type: "string" }, elev: { type: "string" },
+            equip: { type: "string" }, corridor: { type: "string" }, usage: { type: "string" },
+            colorClass: { type: "string" },
+            imgs: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: { label: { type: "string" }, imgKey: { type: "string" } },
+                required: ["label", "imgKey"]
+              }
+            }
+          },
+          required: ["id", "name", "floors", "usage"]
+        }
+      },
+      equipmentHighlights: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { category: { type: "string" }, detail: { type: "string" }, status: { type: "string" }, isOk: { type: "boolean" } },
+          required: ["category", "detail", "status", "isOk"]
+        }
+      },
+      equipmentCategories: { type: "array", items: { type: "string" } },
+      equipmentList: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            catIndex: { type: "number" }, name: { type: "string" }, qty: { type: "string" },
+            location: { type: "string" }, owner: { type: "string" }, statusText: { type: "string" }, isOk: { type: "boolean" }
+          },
+          required: ["catIndex", "name", "qty", "location", "statusText", "isOk"]
+        }
+      },
+      externalContacts: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { unit: { type: "string" }, phone: { type: "string" }, note: { type: "string" } },
+          required: ["unit", "phone"]
+        }
+      },
+      counselingResources: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: { name: { type: "string" }, detail: { type: "string" } },
+          required: ["name", "detail"]
+        }
+      },
+      imageSlots: {
+        type: "object",
+        properties: {
+          roadMap: { type: "string" },
+          campusLayout: { type: "string" },
+          hazardEarthquake: { type: "string" },
+          hazardFlood: { type: "string" },
+          orgChart: { type: "string" },
+          prepStructure: { type: "string" },
+          surveyFlow: { type: "string" },
+          disasterMap: { type: "string" },
+          responseFlow: { type: "string" },
+          reportFlow: { type: "string" }
+        }
+      }
+    },
+    required: ["meta", "leaders", "kpis", "teamsSummary", "teamMembers", "buildings", "timelinePhases", "equipmentList", "externalContacts"]
+  };
+
+  async function callGeminiInteractions(apiKey, model, pdfBytes, imgManifest) {
+    if (pdfBytes.length > 20 * 1024 * 1024) {
+      throw new Error("目前瀏覽器直傳模式支援最大約 20MB PDF（此檔 " + (pdfBytes.length/1024/1024).toFixed(1) + " MB）。請先壓縮 PDF 後重試。");
+    }
+    const base64Pdf = bytesToBase64(pdfBytes);
+    const prompt = `你是一位台灣校園防災計畫專家。請仔細閱讀這份《校園災害防救計畫書》PDF 的每一頁（包含封面、編組表、建築物安全資料表、器材檢核表、外部支援清冊、心靈輔導資源與應變流程圖），並嚴格依照 JSON Schema 擷取所有真實資料（全部使用繁體中文，不可杜撰不存在的人名或電話）。
+
+重點指示：
+1. teamsSummary 依序整理主要應變小組（通常是 指揮組、搶救組、通報組、避難引導組、安全防護組、緊急救護組），teamMembers 裡的 teamIndex 對應 teamsSummary 的 0-based 索引。
+2. timelinePhases 請整理「階段一（災害初期）、階段二（啟動應變、疏散引導、人數清點、搜尋搶救、傷患救護、安全巡查）、階段三（接送、收容與復原）」共 6~8 個階段，每個 action 的 teamIndex 對應 teamsSummary 索引（若為各班導師或全體師生共用動作，teamIndex 可設為 teamsSummary.length）。
+3. buildings 列出計畫書內所有校舍與獨立建物（例如廚房），colorClass 請依性質填："l"(綠色-指定避難場所)、"b"(藍色-一般主要4F以上校舍)、"m"(橘色-補強建物或中小型建物)、"h"(紅色-廚房或特殊風險建物)。
+4. equipmentList 的 catIndex 對應 equipmentCategories（預設 ["個人防護具","檢修搶救工具","安全管制用工具","通訊聯絡工具","緊急救護用品","疏散及收容用品"]），若有尚未完備或須採購補強項目（例如數量 0），isOk 設為 false 並也整理進 equipmentHighlights。
+5. 圖片配對：我們已在瀏覽器端從這份 PDF 萃取出下列內嵌圖片（格式：id | 所在頁碼 | 尺寸 | 該頁文字摘要）。請根據「所在頁碼」與 PDF 內的圖號標題，把對應的圖片 id 填入 imageSlots（如 roadMap、campusLayout、hazardEarthquake、hazardFlood、orgChart、prepStructure、surveyFlow、disasterMap、responseFlow、reportFlow）以及各 buildings[i].imgs 的 imgKey（填入外觀照片與各樓層平面圖）。若某欄位找不到對應圖片則留空字串 ""。
+
+已擷取圖片清單：
+${imgManifest.map(im => `- ${im.id} | 第${im.page}頁 | ${im.width}x${im.height} | 該頁文字: ${im.contextText.slice(0, 120)}`).join("\n")}`;
+
+    const resp = await fetch("https://generativelanguage.googleapis.com/v1beta/interactions", {
+      method: "POST",
+      headers: {
+        "x-goog-api-key": apiKey,
+        "Content-Type": "application/json",
+        "Api-Revision": "2026-05-20"
+      },
+      body: JSON.stringify({
+        model,
+        store: false,
+        input: [
+          { type: "document", data: base64Pdf, mime_type: "application/pdf" },
+          { type: "text", text: prompt }
+        ],
+        response_format: {
+          type: "text",
+          mime_type: "application/json",
+          schema: PLAN_SCHEMA
+        },
+        generation_config: {
+          temperature: 0.1
+        }
+      })
+    });
+
+    const json = await resp.json();
+    if (!resp.ok) {
+      throw new Error(json.error?.message || JSON.stringify(json));
+    }
+
+    // Parse Interactions API steps array (May 2026 schema) with outputs fallback
+    let outText = "";
+    if (Array.isArray(json.steps)) {
+      for (const step of json.steps) {
+        if (step.type === "model_output" && Array.isArray(step.content)) {
+          for (const block of step.content) {
+            if (block.type === "text" && block.text) outText += block.text;
+          }
+        }
+      }
+    } else if (Array.isArray(json.outputs)) {
+      for (const out of json.outputs) {
+        if (out.type === "text" && out.text) outText += out.text;
+      }
+    }
+    if (!outText) throw new Error("Gemini 回應中未包含文字內容，請檢查 API 回傳。");
+    return JSON.parse(outText);
+  }
+
+  btnRun.addEventListener("click", async () => {
+    const apiKey = keyInput.value.trim();
+    if (!apiKey) {
+      alert("請先在步驟 1 輸入您的 Google AI Studio Gemini API Key！\n或點擊右上角「載入永康國小範例資料試玩」。");
+      keyInput.focus();
+      return;
+    }
+    if (!pdfDocCache || !currentPdfBytes) {
+      alert("請先選擇 PDF 檔案。");
+      return;
+    }
+    btnRun.disabled = true;
+    try {
+      log("開始階段 1：使用 PDF.js 擷取圖片與各頁標題摘要…");
+      const { imgs } = await extractImagesAndCaptions(pdfDocCache);
+      extractedImages = imgs;
+      log(`圖片擷取完成，共取得 ${imgs.length} 張不重複圖表/照片。`);
+
+      const model = modelSel.value;
+      setProg(50, `正透過 ${model} 解析計畫書內容（約 20～50 秒）…`);
+      log(`開始階段 2：呼叫 Gemini Interactions API (${model}) 進行整份 PDF 結構化解析…`);
+      const parsed = await callGeminiInteractions(apiKey, model, currentPdfBytes, imgs);
+
+      setProg(92, "正在整理圖資並產生網站預覽…");
+      parsed.meta = parsed.meta || {};
+      parsed.meta.pdfUrl = "./documents/disaster-plan.pdf";
+      hydrateAndShowWorkspace(parsed);
+      setProg(100, "生成完成！可在下方預覽、調整圖片並下載 ZIP。");
+      log("全部解析與網頁生成完成！");
+    } catch (err) {
+      setProg(0, "解析失敗：" + err.message);
+      log("❌ 錯誤：" + err.message);
+      alert("解析失敗：\n" + err.message);
+    } finally {
+      btnRun.disabled = false;
+    }
+  });
+
+  function buildAssetsMap() {
+    const map = {};
+    extractedImages.forEach(im => { map[im.id] = im.dataUrl; });
+    return map;
+  }
+
+  function hydrateAndShowWorkspace(planData) {
+    currentPlanData = planData;
+    currentPlanData.hasPdf = Boolean(currentPdfBytes) || Boolean(currentPlanData.hasPdf);
+    syncExtraImages();
+    workspace.classList.remove("hide");
+    $("#img-count").textContent = extractedImages.length;
+    $("#json-editor").value = JSON.stringify(currentPlanData, null, 2);
+    renderImageMapper();
+    sendToPreview();
+    workspace.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function syncExtraImages() {
+    if (!currentPlanData) return;
+    const used = new Set();
+    const slots = currentPlanData.imageSlots || {};
+    Object.values(slots).forEach(v => { if (v) used.add(v); });
+    (currentPlanData.buildings || []).forEach(b => {
+      (b.imgs || []).forEach(im => { if (im.imgKey) used.add(im.imgKey); });
+    });
+    currentPlanData.extraImages = extractedImages
+      .filter(im => !used.has(im.id) && !im.excluded)
+      .map(im => ({ label: `第 ${im.page} 頁擷取圖 (${im.width}×${im.height})`, imgKey: im.id }));
+  }
+
+  function sendToPreview() {
+    if (!currentPlanData) return;
+    const payload = JSON.parse(JSON.stringify(currentPlanData));
+    payload.assets = buildAssetsMap();
+    const msg = { type: "RENDER_PLAN", data: payload };
+    if (!previewFrame.getAttribute("src")) {
+      previewFrame.src = "./template.html";
+      previewFrame.onload = () => previewFrame.contentWindow.postMessage(msg, "*");
+    } else if (previewFrame.contentWindow) {
+      previewFrame.contentWindow.postMessage(msg, "*");
+    }
+  }
+
+  previewFrame.addEventListener("load", () => {
+    if (currentPlanData) sendToPreview();
+  });
+
+  // Tabs
+  document.querySelectorAll("[data-tab]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const t = btn.dataset.tab;
+      document.querySelectorAll("[data-tab]").forEach(b => b.classList.toggle("on", b === btn));
+      ["preview", "images", "json"].forEach(k => $("#tab-" + k).classList.toggle("hide", k !== t));
+    });
+  });
+
+  // Image Mapper UI
+  const SLOT_OPTIONS = [
+    ["", "（列於「其餘圖表」或不綁定特定欄位）"],
+    ["slot:roadMap", "圖 2.1 校園周邊道路圖"],
+    ["slot:campusLayout", "圖 2.2 校園平面配置圖"],
+    ["slot:hazardEarthquake", "地震災害潛勢圖"],
+    ["slot:hazardFlood", "淹水災害潛勢圖"],
+    ["slot:orgChart", "災害防救組織架構圖"],
+    ["slot:disasterMap", "校園防災（疏散）地圖"],
+    ["slot:responseFlow", "校園災害應變流程圖"],
+    ["slot:reportFlow", "災害通報流程圖"],
+    ["slot:prepStructure", "減災整備工作架構圖"],
+    ["slot:surveyFlow", "環境安全自主調查流程圖"],
+    ["exclude", "✕ 排除此圖（例如封面裝飾或頁首圖示）"]
+  ];
+
+  function findImgAssignment(imgId) {
+    const slots = currentPlanData.imageSlots || {};
+    for (const [k, v] of Object.entries(slots)) {
+      if (v === imgId) return `slot:${k}`;
+    }
+    const blds = currentPlanData.buildings || [];
+    for (let i = 0; i < blds.length; i++) {
+      if ((blds[i].imgs || []).some(x => x.imgKey === imgId)) return `bld:${i}`;
+    }
+    const imObj = extractedImages.find(x => x.id === imgId);
+    if (imObj && imObj.excluded) return "exclude";
+    return "";
+  }
+
+  function assignImage(imgId, target) {
+    const slots = (currentPlanData.imageSlots = currentPlanData.imageSlots || {});
+    for (const k of Object.keys(slots)) {
+      if (slots[k] === imgId) slots[k] = "";
+    }
+    (currentPlanData.buildings || []).forEach(b => {
+      b.imgs = (b.imgs || []).filter(x => x.imgKey !== imgId);
+    });
+    const imObj = extractedImages.find(x => x.id === imgId);
+    if (imObj) imObj.excluded = false;
+
+    if (target === "exclude") {
+      if (imObj) imObj.excluded = true;
+    } else if (target.startsWith("slot:")) {
+      slots[target.slice(5)] = imgId;
+    } else if (target.startsWith("bld:")) {
+      const bIdx = +target.slice(4);
+      const b = currentPlanData.buildings[bIdx];
+      if (b) {
+        b.imgs = b.imgs || [];
+        b.imgs.push({ label: `第 ${imObj?.page || ""} 頁平面／照片`, imgKey: imgId });
+      }
+    }
+    syncExtraImages();
+    $("#json-editor").value = JSON.stringify(currentPlanData, null, 2);
+    sendToPreview();
+  }
+
+  function renderImageMapper() {
+    const box = $("#img-mapper");
+    const bldOpts = (currentPlanData?.buildings || []).map((b, i) => [`bld:${i}`, `建物平面/照片：${b.name}`]);
+    const allOpts = SLOT_OPTIONS.concat(bldOpts);
+
+    box.innerHTML = extractedImages.map(im => {
+      const cur = findImgAssignment(im.id);
+      const optsHtml = allOpts.map(([val, lbl]) => `<option value="${val}"${cur === val ? " selected" : ""}>${lbl}</option>`).join("");
+      return `<div class="im-card">
+        <img class="zm" src="${im.dataUrl}" alt="${im.id}">
+        <div class="im-meta"><b>${im.id}</b>｜第 ${im.page} 頁｜${im.width}×${im.height}</div>
+        <select data-img-id="${im.id}" style="font-size:12.5px;padding:6px 8px">${optsHtml}</select>
+      </div>`;
+    }).join("") || `<p class="note">目前沒有擷取到獨立圖片（若是純向量繪製的 PDF，請用上方「擷取該頁整頁圖」補入地圖或平面圖）。</p>`;
+
+    box.querySelectorAll("select[data-img-id]").forEach(sel => {
+      sel.addEventListener("change", () => assignImage(sel.dataset.imgId, sel.value));
+    });
+  }
+
+  // Capture whole PDF page as PNG (great for vector maps!)
+  $("#btn-capture-page").addEventListener("click", async () => {
+    if (!pdfDocCache) {
+      alert("請先上傳 PDF 才能從頁碼截圖。");
+      return;
+    }
+    const p = +$("#capture-page-num").value;
+    if (!p || p < 1 || p > pdfDocCache.numPages) {
+      alert(`請輸入 1 到 ${pdfDocCache.numPages} 之間的頁碼。`);
+      return;
+    }
+    const page = await pdfDocCache.getPage(p);
+    const viewport = page.getViewport({ scale: 2.0 });
+    const canvas = document.createElement("canvas");
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+    const dataUrl = canvas.toDataURL("image/jpeg", 0.9);
+    const raw = atob(dataUrl.slice(dataUrl.indexOf(",") + 1));
+    const bytes = new Uint8Array(raw.length);
+    for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+    const id = `page_p${String(p).padStart(2, "0")}_${Date.now().toString().slice(-4)}.jpg`;
+    extractedImages.push({ id, page: p, width: Math.round(viewport.width), height: Math.round(viewport.height), ext: "jpg", mime: "image/jpeg", dataUrl, bytes, contextText: "整頁高解析截圖" });
+    $("#img-count").textContent = extractedImages.length;
+    syncExtraImages();
+    renderImageMapper();
+    sendToPreview();
+    log(`已從第 ${p} 頁擷取整頁圖片：${id}`);
+  });
+
+  // Apply JSON Edits
+  $("#btn-apply-json").addEventListener("click", () => {
+    try {
+      const updated = JSON.parse($("#json-editor").value);
+      currentPlanData = updated;
+      renderImageMapper();
+      sendToPreview();
+      alert("JSON 資料已套用並更新預覽！");
+    } catch (e) {
+      alert("JSON 格式有誤，請檢查語法：\n" + e.message);
+    }
+  });
+  $("#btn-download-json").addEventListener("click", () => {
+    if (!currentPlanData) return;
+    const blob = new Blob([JSON.stringify(currentPlanData, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `${currentPlanData.meta?.schoolName || "school"}-plan-data.json`;
+    a.click();
+  });
+
+  // Pure-JS ZIP builder
+  function makeZip(entries) {
+    const enc = new TextEncoder(), locals = [], centrals = [];
+    let offset = 0, centralSize = 0;
+    const now = new Date();
+    const tm = (now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1);
+    const dt = ((Math.max(1980, now.getFullYear()) - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate();
+    const crc32 = (b) => {
+      let c = 0xffffffff;
+      for (let i = 0; i < b.length; i++) {
+        c ^= b[i];
+        for (let j = 0; j < 8; j++) c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+      }
+      return (c ^ 0xffffffff) >>> 0;
+    };
+    for (const f of entries) {
+      const n = enc.encode(f.name), b = f.bytes, crc = crc32(b);
+      const lh = new Uint8Array(30), ld = new DataView(lh.buffer);
+      ld.setUint32(0, 0x04034b50, true); ld.setUint16(4, 20, true); ld.setUint16(6, 0x0800, true);
+      ld.setUint16(10, tm, true); ld.setUint16(12, dt, true); ld.setUint32(14, crc, true);
+      ld.setUint32(18, b.length, true); ld.setUint32(22, b.length, true); ld.setUint16(26, n.length, true);
+      locals.push(lh, n, b);
+      const ch = new Uint8Array(46), cd = new DataView(ch.buffer);
+      cd.setUint32(0, 0x02014b50, true); cd.setUint16(4, 20, true); cd.setUint16(6, 20, true); cd.setUint16(8, 0x0800, true);
+      cd.setUint16(12, tm, true); cd.setUint16(14, dt, true); cd.setUint32(16, crc, true);
+      cd.setUint32(20, b.length, true); cd.setUint32(24, b.length, true); cd.setUint16(28, n.length, true); cd.setUint32(42, offset, true);
+      centrals.push(ch, n);
+      centralSize += ch.length + n.length;
+      offset += lh.length + n.length + b.length;
+    }
+    const end = new Uint8Array(22), ed = new DataView(end.buffer);
+    ed.setUint32(0, 0x06054b50, true); ed.setUint16(8, entries.length, true); ed.setUint16(10, entries.length, true);
+    ed.setUint32(12, centralSize, true); ed.setUint32(16, offset, true);
+    return new Blob([...locals, ...centrals, end], { type: "application/zip" });
+  }
+
+  $("#btn-zip").addEventListener("click", async () => {
+    if (!currentPlanData) return;
+    if (!templateHtmlCache) {
+      try {
+        const r = await fetch("./template.html");
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        templateHtmlCache = await r.text();
+      } catch (e) {
+        alert("無法讀取 template.html（若您是直接雙擊本機 HTML 檔案開啟，瀏覽器安全限制會阻擋讀取同目錄範本；請透過 GitHub Pages 網址或本機 HTTP 伺服器開啟即可正常打包 ZIP）。");
+        return;
+      }
+    }
+    const enc = new TextEncoder();
+    const exportData = JSON.parse(JSON.stringify(currentPlanData));
+    delete exportData.assets;
+
+    const includePdf = $("#include-pdf").checked && Boolean(currentPdfBytes);
+    exportData.hasPdf = includePdf;
+
+    // Remap image keys to ./assets/<filename>
+    const assetsMap = {};
+    const usedFiles = [];
+    for (const im of extractedImages) {
+      if (im.excluded) continue;
+      assetsMap[im.id] = `./assets/${im.id}`;
+      usedFiles.push(im);
+    }
+    // Preserve demo URLs if in demo mode
+    if (currentPlanData.demoAssets) {
+      Object.assign(assetsMap, currentPlanData.demoAssets);
+    }
+    exportData.assets = assetsMap;
+
+    const safeJson = JSON.stringify(exportData).replace(/<\//g, "<\\/");
+    const outHtml = templateHtmlCache.replace(
+      `<script id="plan-data-seed" type="application/json">null<\/script>`,
+      `<script id="plan-data-seed" type="application/json">${safeJson}<\/script>`
+    );
+
+    const files = [
+      { name: "index.html", bytes: enc.encode(outHtml) },
+      { name: ".nojekyll", bytes: new Uint8Array(0) },
+      { name: "README.md", bytes: enc.encode(`# ${exportData.meta?.schoolName || "校園"} 校園災害防救計畫網站\n\n上傳本資料夾內全部檔案至 GitHub Repository 並啟用 GitHub Pages（Branch: main / root）即可上線。\n`) }
+    ];
+    for (const im of usedFiles) {
+      files.push({ name: `assets/${im.id}`, bytes: im.bytes });
+    }
+    if (includePdf && currentPdfBytes) {
+      files.push({ name: "documents/disaster-plan.pdf", bytes: currentPdfBytes });
+    }
+
+    const zipBlob = makeZip(files);
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(zipBlob);
+    a.download = `${exportData.meta?.schoolName || "disaster-plan"}-website.zip`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    log(`已匯出完整網站壓縮包（含 ${files.length} 個檔案）。`);
+  });
+
+  // Demo mode: Yongkang Elementary School data
+  $("#btn-demo").addEventListener("click", () => {
+    extractedImages = [];
+    const demoImgs = [
+      ["road.png", "./assets/fig2-1-road-map.png", "圖 2.1 校園周邊道路圖"],
+      ["layout.png", "./assets/fig2-2-campus-layout.png", "圖 2.2 校園平面配置圖"],
+      ["eq.jpg", "./assets/fig2-4-1-hazard-earthquake.jpg", "地震災害潛勢圖"],
+      ["flood.png", "./assets/fig2-4-2-hazard-flood.png", "淹水災害潛勢圖"],
+      ["org.jpg", "./assets/fig2-5-org-chart.jpg", "組織架構圖"],
+      ["dmap.jpg", "./assets/fig3-3-disaster-map.jpg", "校園防災地圖"],
+      ["resp.png", "./assets/fig4-1-response-flow.png", "應變流程圖"],
+      ["rep.png", "./assets/fig4-2-report-flow.png", "通報流程圖"],
+      ["b1_1f.jpg", "./assets/bld1-1f.jpg", "行政大樓 1F"]
+    ];
+    const demoAssets = {};
+    demoImgs.forEach(([k, url]) => { demoAssets[k] = url; });
+    const demoData = {
+      hasPdf: true,
+      demoAssets,
+      meta: {
+        year: "112",
+        fullName: "臺南市永康區永康國民小學",
+        schoolName: "永康國小",
+        versionInfo: "版本 3｜112.02.10 修訂（範例試玩資料）",
+        address: "710 臺南市永康區永康里中山南路 637 號",
+        coordinates: "經度 120°15'21\"｜緯度 23°1'33\"",
+        geography: "位處嘉南平原南段永康區，北與東臨中山路41巷、西臨永正路、南臨中山南路。",
+        extraInfo: "自有交通車 1 輛｜志工團隊 60 人",
+        hazardTypes: "二類災害潛勢：地震災害（永康斷層敏感帶）、淹水災害",
+        lastCheckDate: "112年02月10日",
+        pdfUrl: "./documents/disaster-plan.pdf"
+      },
+      leaders: {
+        coreList: [
+          { role: "指揮官", detail: "校長 洪國展（0978-027071）" },
+          { role: "指揮官代理人／發言人", detail: "學務主任 蕭堯駿（0933-514178）" },
+          { role: "防災業務負責人", detail: "學務主任 蕭堯駿／生教組長 姜瑩（0988-032241）" }
+        ]
+      },
+      kpis: {
+        staffTotal: "179", staffDetail: "教職員工總數（正式159＋非正式20）",
+        studentTotal: "2,505", studentDetail: "在校學生總數（國小2,363＋幼生136＋身障6）",
+        classTotal: "94+3", classDetail: "一般87＋幼兒6＋特教1+3巡迴",
+        buildingSummary: "7棟+1廚", buildingDetail: "校園建築規模（含禮堂避難場所）"
+      },
+      revisionHistory: [
+        { date: "110年5月10日", version: "版本 1", description: "完成初版計畫撰寫並經會報通過。" },
+        { date: "111年8月30日", version: "版本 2", description: "更新人事編組與防救災資源配置。" },
+        { date: "112年2月10日", version: "版本 3", description: "完成全校安檢與年度器材盤點修訂。" }
+      ],
+      hazardHistory: [
+        { date: "2005/10/21", type: "工程災害", location: "校內", summary: "鄰近學校施工氣體飄散至校內。", casualties: "0 人", recovery: "疏散至上風處並通報。" },
+        { date: "2016/09", type: "風災（莫蘭蒂、梅姬）", location: "禮堂及各區", summary: "禮堂天花板掉落、榕樹倒塌、柵欄機損壞。", casualties: "0 人", recovery: "緊急搶修與復原完畢。" }
+      ],
+      staffBreakdown: [
+        { label: "正式教職員", count: 159, note: "校長、正式教師、職員、護理師" },
+        { label: "非正式編制", count: 20, note: "代理教師與約僱人員" },
+        { label: "志工團隊", count: 60, note: "交通導護與校園志工" }
+      ],
+      studentBreakdown: [
+        { label: "國小一般生", count: 2363, colorIndex: 1, note: "87 班" },
+        { label: "附設幼兒園", count: 136, colorIndex: 2, note: "6 班" },
+        { label: "身心障礙生", count: 6, colorIndex: 3, note: "特教班 1+3 巡迴" }
+      ],
+      peaceResponsibilities: [
+        { task: "各處室權責分工與監督", lead: "校長", support: "各處室" },
+        { task: "危機處理與發言人機制", lead: "學務處", support: "教務處" },
+        { task: "減災整備與設備採購", lead: "總務處", support: "學務處" },
+        { task: "防災教育課程與宣導", lead: "教務處", support: "學務處" }
+      ],
+      teamsSummary: [
+        { name: "指揮組", leader: "校長 洪國展", countLabel: "2人", note: "代理：蕭堯駿主任" },
+        { name: "搶救組", leader: "組長 周偉明", countLabel: "5人", note: "體育與健體師資" },
+        { name: "通報組", leader: "組長 姜瑩", countLabel: "3人", note: "生教/體衛/幼兒園" },
+        { name: "避難引導組", leader: "組長 黃筱棻", countLabel: "10人+導師", note: "教務/人事/廚房/各班" },
+        { name: "安全防護組", leader: "組長 朱桓顯", countLabel: "9人", note: "總務/會計/保全" },
+        { name: "緊急救護組", leader: "組長 詹榮原", countLabel: "9人", note: "輔導/護理師/專輔" }
+      ],
+      teamMembers: [
+        { teamIndex: 0, role: "指揮官", titleName: "校長 洪國展", location: "行政大樓 2F", duty: "綜理並指揮全校災害防救應變" },
+        { teamIndex: 1, role: "組長", titleName: "體育組長 周偉明", location: "行政大樓 1F", duty: "初期滅火、搜救受困人員" },
+        { teamIndex: 2, role: "組長", titleName: "生教組長 姜瑩", location: "行政大樓 1F", duty: "校安中心與區級應變中心通報" },
+        { teamIndex: 3, role: "組長", titleName: "教務主任 黃筱棻", location: "行政大樓 1F", duty: "確認動線並引導全校師生疏散" },
+        { teamIndex: 4, role: "組長", titleName: "總務主任 朱桓顯", location: "行政大樓 1F", duty: "校舍安全巡查、斷電與警戒管制" },
+        { teamIndex: 5, role: "組長", titleName: "輔導主任 詹榮原", location: "行政大樓 1F", duty: "開設急救站、檢傷送醫與心理輔導" }
+      ],
+      principles: {
+        earthquake: "先避難（趴下、掩護、穩住），再疏散至運動場",
+        flood: "垂直避難（往 2 樓以上高處）",
+        rainBackup: "疏散至禮堂（室內避難場所，容納 800 人）",
+        coreSteps: [
+          { title: "就地掩蔽", desc: "地震發生立即趴、掩、穩保護頭頸部。" },
+          { title: "啟動編組", desc: "地震稍歇後廣播召集各組於司令台集結。" },
+          { title: "全校疏散", desc: "確認通道安全後引導 94 班前往運動場集合地點。" },
+          { title: "清點通報", desc: "清點 2,505 名學生與 179 名教職員並完成校安通報。" }
+        ]
+      },
+      drillSettings: [
+        { label: "主要防範災害", value: "地震（鄰近永康斷層）、風水災" },
+        { label: "指揮中心／集合點", value: "司令台前／運動場草坪" }
+      ],
+      timelinePhases: [
+        {
+          phase: "階段一", title: "災害發生初期", note: "嚴禁奔跑，先就地掩蔽。",
+          actions: [{ teamIndex: 6, stepCode: "1-1", text: "各班導師指導學生執行「趴下、掩護、穩住」。" }]
+        },
+        {
+          phase: "階段二", title: "全校疏散與應變", note: "使用無線電與大聲公協調。",
+          actions: [
+            { teamIndex: 0, stepCode: "2-1", text: "指揮官宣布啟動應變小組並全校廣播疏散。" },
+            { teamIndex: 5, stepCode: "2-2", text: "護理師攜帶急救箱與 AED 於綜合球場設立急救站。" }
+          ]
+        }
+      ],
+      buildings: [
+        {
+          id: "bld1", code: "7-1", name: "行政大樓", year: "民國91年", floors: "地上4層／地下1層", struct: "RC構造",
+          shelter: "否", checkDate: "112.02.05", rooms: "60", cap: "1800", toilet: "19", accToilet: "4", stairs: "3", elev: "1",
+          equip: "緩降機 12 具、避難滑梯 2 座、無障礙斜坡道 1 座", corridor: "走廊外側有柱，梁柱安檢無異常", usage: "1F各處室、2F校長室會議室、各年級與專科教室",
+          colorClass: "b", imgs: [{ label: "1F 平面圖（範例）", imgKey: "b1_1f.jpg" }]
+        },
+        {
+          id: "bld5", code: "7-5", name: "禮堂（避難場所）", year: "民國66年", floors: "地上1層／地下0層", struct: "RC構造",
+          shelter: "是（室內避難場所）", checkDate: "112.02.05", rooms: "1", cap: "800", toilet: "0", accToilet: "0", stairs: "0", elev: "0",
+          equip: "無障礙斜坡道 1 座", corridor: "大型室內活動中心", usage: "室內避難集合場所與臨時收容空間",
+          colorClass: "l", imgs: []
+        }
+      ],
+      equipmentHighlights: [
+        { category: "安全管制：夜間警示燈", detail: "現有 0 組，已列本年度預算採購補強。", status: "待補強（今年度預算採購）", isOk: false },
+        { category: "AED 與醫療急救設備", detail: "健康中心外配置 AED 1 組、擔架、氧氣瓶與緊急輪椅 2 部。", status: "已完備（黃秀惠護理師）", isOk: true }
+      ],
+      equipmentCategories: ["個人防護具","檢修搶救工具","安全管制用工具","通訊聯絡工具","緊急救護用品","疏散及收容用品"],
+      equipmentList: [
+        { catIndex: 0, name: "安全帽（防災頭盔）", qty: "200 個", location: "各教室", owner: "各班人員", statusText: "已完備", isOk: true },
+        { catIndex: 2, name: "夜間警示燈", qty: "0 組", location: "學務處／總務處", owner: "蕭堯駿 主任", statusText: "需補強：本年度預算採購", isOk: false },
+        { catIndex: 4, name: "AED 自動體外電擊器", qty: "1 組", location: "教學大樓 1F 健康中心外", owner: "黃秀惠 護理師", statusText: "已完備", isOk: true }
+      ],
+      externalContacts: [
+        { unit: "永康派出所", phone: "06-2326081", note: "0.2 km（約 1 分鐘）" },
+        { unit: "永康消防分隊", phone: "06-2326951", note: "0.5 km（約 2 分鐘）" },
+        { unit: "奇美醫院", phone: "06-2812811", note: "4.3 km（約 20 分鐘）" }
+      ],
+      counselingResources: [
+        { name: "教育部學生輔導諮商中心（溪南區）", detail: "06-2371206#705" },
+        { name: "生命線／張老師專線", detail: "1995／1980" }
+      ],
+      imageSlots: {
+        roadMap: "road.png",
+        campusLayout: "layout.png",
+        hazardEarthquake: "eq.jpg",
+        hazardFlood: "flood.png",
+        orgChart: "org.jpg",
+        disasterMap: "dmap.jpg",
+        responseFlow: "resp.png",
+        reportFlow: "rep.png"
+      }
+    };
+    setProg(100, "已載入永康國小範例資料（試玩模式）");
+    log("已載入永康國小範例結構化資料，可直接操作預覽或試用編輯功能。");
+    hydrateAndShowWorkspace(demoData);
+  });
+
+  // Lightbox for generator thumbnails
+  const lb = $("#lb"), lbImg = lb.querySelector("img");
+  document.addEventListener("click", e => {
+    const z = e.target.closest(".zm");
+    if (z) { lbImg.src = z.src; lb.classList.add("on"); }
+    else if (e.target.closest("#lb")) lb.classList.remove("on");
+  });
+})();
+</script>
+</body>
+</html>
