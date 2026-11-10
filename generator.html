@@ -238,8 +238,8 @@ iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line)
       pdfDocCache = await pdfjsLib.getDocument({ data: currentPdfBytes.slice(0) }).promise;
       $("#file-info").innerHTML = `<b>${file.name}</b>｜大小 ${mb} MB｜共 <b>${pdfDocCache.numPages}</b> 頁`;
       btnRun.disabled = false;
-      setProg(10, `PDF 已就緒（${pdfDocCache.numPages} 頁）`);
-      log(`PDF 讀取成功，共 ${pdfDocCache.numPages} 頁。`);
+      setProg(0, `✅ PDF 已讀取（${pdfDocCache.numPages} 頁），請點擊按鈕開始解析`);
+      log(`PDF 讀取成功，共 ${pdfDocCache.numPages} 頁。請確認「步驟 1」已填入 API Key，再點擊上方「🚀 開始 AI 解析並生成網站」按鈕。`);
     } catch (err) {
       alert("PDF 解析失敗，請確認檔案未加密或毀損。");
       console.error(err);
@@ -294,17 +294,21 @@ iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line)
     return { dataUrl, bytes, mime, ext, width: w, height: h };
   }
 
-  function resolvePdfObj(objs, name) {
+  function resolvePdfObj(page, name) {
+    if (typeof name !== "string") return Promise.resolve(null);
+    const store = name.startsWith("g_") ? page.commonObjs : page.objs;
     return new Promise((resolve) => {
+      let done = false;
+      const finish = (val) => { if (!done) { done = true; resolve(val); } };
       try {
-        if (objs.has(name)) {
-          resolve(objs.get(name));
+        if (store.has(name)) {
+          finish(store.get(name));
         } else {
-          objs.get(name, (val) => resolve(val));
-          setTimeout(() => resolve(null), 1500);
+          store.get(name, finish);
+          setTimeout(() => finish(null), 500);
         }
       } catch (_) {
-        resolve(null);
+        finish(null);
       }
     });
   }
@@ -330,7 +334,7 @@ iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line)
         let imgObj = null;
         if (fn === pdfjsLib.OPS.paintImageXObject || fn === pdfjsLib.OPS.paintJpegXObject) {
           const objName = ops.argsArray[i][0];
-          imgObj = await resolvePdfObj(page.objs, objName);
+          imgObj = await resolvePdfObj(page, objName);
         } else if (fn === pdfjsLib.OPS.paintInlineImageXObject) {
           imgObj = ops.argsArray[i][0];
         }
