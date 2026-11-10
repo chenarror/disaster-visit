@@ -631,8 +631,7 @@ ${imgManifest.map(im => `- ${im.id} | 第${im.page}頁 | ${im.width}x${im.height
       method: "POST",
       headers: {
         "x-goog-api-key": apiKey,
-        "Content-Type": "application/json",
-        "Api-Revision": "2026-05-20"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         model,
@@ -654,10 +653,11 @@ ${imgManifest.map(im => `- ${im.id} | 第${im.page}頁 | ${im.width}x${im.height
 
     const json = await resp.json();
     if (!resp.ok) {
-      throw new Error(json.error?.message || JSON.stringify(json));
+      const errObj = Array.isArray(json) ? json[0]?.error : json.error;
+      throw new Error(errObj?.message || JSON.stringify(json));
     }
 
-    // Parse Interactions API steps array (May 2026 schema) with outputs fallback
+    // Parse Interactions API steps array with outputs fallback
     let outText = "";
     if (Array.isArray(json.steps)) {
       for (const step of json.steps) {
@@ -673,6 +673,7 @@ ${imgManifest.map(im => `- ${im.id} | 第${im.page}頁 | ${im.width}x${im.height
       }
     }
     if (!outText) throw new Error("Gemini 回應中未包含文字內容，請檢查 API 回傳。");
+    outText = outText.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "");
     return JSON.parse(outText);
   }
 
