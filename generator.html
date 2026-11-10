@@ -66,6 +66,7 @@ iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line)
       <div class="row" style="margin-top:0;flex-wrap:nowrap">
         <input type="password" id="api-key" placeholder="貼上 AIza... 開頭的 API Key" autocomplete="off">
         <button type="button" class="btn o sm" id="toggle-key" style="flex:none">顯示</button>
+        <button type="button" class="btn o sm" id="btn-test-api" style="flex:none">🔍 測試連線</button>
       </div>
       <div class="row" style="justify-content:space-between">
         <label style="font-weight:400;font-size:13px;margin:0;display:flex;align-items:center;gap:6px">
@@ -199,6 +200,45 @@ iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line)
     const isPwd = keyInput.type === "password";
     keyInput.type = isPwd ? "text" : "password";
     $("#toggle-key").textContent = isPwd ? "隱藏" : "顯示";
+  });
+
+  async function runApiDiagnostics(apiKey, model) {
+    log("🔎 正在進行連線診斷…");
+    try {
+      const r1 = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(apiKey)}`);
+      const j1 = await r1.json().catch(() => ({}));
+      if (r1.ok) {
+        log(`🔎 診斷 1/2 (GET models)：成功 (HTTP ${r1.status})，API Key 與網路正常。`);
+      } else {
+        const msg = (Array.isArray(j1) ? j1[0]?.error?.message : j1.error?.message) || `HTTP ${r1.status}`;
+        log(`🔎 診斷 1/2 (GET models)：伺服器回應 HTTP ${r1.status} - ${msg}`);
+      }
+    } catch (e1) {
+      log(`🔎 診斷 1/2 (GET models) 也失敗：${e1.message} → 代表瀏覽器／外掛（如擋廣告套件）／防火牆或 VPN 阻擋了連往 generativelanguage.googleapis.com 的連線。`);
+      return;
+    }
+    try {
+      const r2 = await fetch("https://generativelanguage.googleapis.com/v1beta/interactions", {
+        method: "POST",
+        headers: { "x-goog-api-key": apiKey, "Content-Type": "application/json" },
+        body: JSON.stringify({ model, store: false, input: "Reply OK" })
+      });
+      const j2 = await r2.json().catch(() => ({}));
+      if (r2.ok) {
+        log(`🔎 診斷 2/2 (小文字 POST interactions, ${model})：成功 (HTTP ${r2.status})！表示檔案過大或超時，建議改以「頁面文字＋關鍵圖頁」或「Files API」傳送。`);
+      } else {
+        const msg = (Array.isArray(j2) ? j2[0]?.error?.message : j2.error?.message) || `HTTP ${r2.status}`;
+        log(`🔎 診斷 2/2 (POST interactions, ${model})：HTTP ${r2.status} - ${msg}`);
+      }
+    } catch (e2) {
+      log(`🔎 診斷 2/2 (POST interactions) 失敗：${e2.message}`);
+    }
+  }
+
+  $("#btn-test-api").addEventListener("click", async () => {
+    const apiKey = keyInput.value.trim();
+    if (!apiKey) { alert("請先貼上 API Key"); keyInput.focus(); return; }
+    await runApiDiagnostics(apiKey, modelSel.value);
   });
 
   function log(msg) {
@@ -610,11 +650,43 @@ iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line)
     required: ["meta", "leaders", "kpis", "teamsSummary", "teamMembers", "buildings", "timelinePhases", "equipmentList", "externalContacts"]
   };
 
-  async function callGeminiInteractions(apiKey, model, pdfBytes, imgManifest) {
-    if (pdfBytes.length > 20 * 1024 * 1024) {
-      throw new Error("目前瀏覽器直傳模式支援最大約 20MB PDF（此檔 " + (pdfBytes.length/1024/1024).toFixed(1) + " MB）。請先壓縮 PDF 後重試。");
+  async function uploadPdfToFilesApi(apiKey, pdfBytes, fileName) {
+    log(`正透過 Gemini Files API 上傳 PDF（${(pdfBytes.length / 1024 / 1024).toFixed(2)} MB）…`);
+    const upResp = await fetch(
+      `https://generativelanguage.googleapis.com/upload/v1beta/files?uploadType=media&key=${encodeURIComponent(apiKey)}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/pdf" },
+        body: pdfBytes
+      }
+    );
+    const upJson = await upResp.json().catch(() => ({}));
+    if (!upResp.ok) {
+      const errObj = Array.isArray(upJson) ? upJson[0]?.error : upJson.error;
+      throw new Error("Files API 上傳失敗：" + (errObj?.message || `HTTP ${upResp.status}`));
     }
-    const base64Pdf = bytesToBase64(pdfBytes);
+    let fileMeta = upJson.file || upJson;
+    if (!fileMeta.uri) throw new Error("Files API 未回傳 file.uri");
+    log(`PDF 上傳完成（狀態：${fileMeta.state || "ACTIVE"}），準備進行 AI 結構化解析…`);
+
+    for (let i = 0; i < 20 && fileMeta.state === "PROCESSING"; i++) {
+      await new Promise(r => setTimeout(r, 1500));
+      const checkResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/${fileMeta.name}?key=${encodeURIComponent(apiKey)}`);
+      if (checkResp.ok) {
+        const cj = await checkResp.json();
+        fileMeta = cj.file || cj;
+      }
+    }
+    if (fileMeta.state === "FAILED") {
+      throw new Error("Gemini 伺服器處理 PDF 檔案失敗。");
+    }
+    return fileMeta.uri;
+  }
+
+  async function callGeminiInteractions(apiKey, model, pdfBytes, imgManifest) {
+    if (pdfBytes.length > 48 * 1024 * 1024) {
+      throw new Error("PDF 檔案超過 Gemini API 50MB 上限（此檔 " + (pdfBytes.length/1024/1024).toFixed(1) + " MB）。");
+    }
     const prompt = `你是一位台灣校園防災計畫專家。請仔細閱讀這份《校園災害防救計畫書》PDF 的每一頁（包含封面、編組表、建築物安全資料表、器材檢核表、外部支援清冊、心靈輔導資源與應變流程圖），並嚴格依照 JSON Schema 擷取所有真實資料（全部使用繁體中文，不可杜撰不存在的人名或電話）。
 
 重點指示：
@@ -627,6 +699,14 @@ iframe.prev{width:100%;height:72vh;min-height:520px;border:1px solid var(--line)
 已擷取圖片清單：
 ${imgManifest.map(im => `- ${im.id} | 第${im.page}頁 | ${im.width}x${im.height} | 該頁文字: ${im.contextText.slice(0, 120)}`).join("\n")}`;
 
+    let docPart;
+    if (pdfBytes.length > 2 * 1024 * 1024) {
+      const fileUri = await uploadPdfToFilesApi(apiKey, pdfBytes, currentFile?.name || "plan.pdf");
+      docPart = { type: "document", uri: fileUri, mime_type: "application/pdf" };
+    } else {
+      docPart = { type: "document", data: bytesToBase64(pdfBytes), mime_type: "application/pdf" };
+    }
+
     const resp = await fetch("https://generativelanguage.googleapis.com/v1beta/interactions", {
       method: "POST",
       headers: {
@@ -637,7 +717,7 @@ ${imgManifest.map(im => `- ${im.id} | 第${im.page}頁 | ${im.width}x${im.height
         model,
         store: false,
         input: [
-          { type: "document", data: base64Pdf, mime_type: "application/pdf" },
+          docPart,
           { type: "text", text: prompt }
         ],
         response_format: {
@@ -709,6 +789,9 @@ ${imgManifest.map(im => `- ${im.id} | 第${im.page}頁 | ${im.width}x${im.height
     } catch (err) {
       setProg(0, "解析失敗：" + err.message);
       log("❌ 錯誤：" + err.message);
+      if (/fetch/i.test(err.message)) {
+        await runApiDiagnostics(apiKey, modelSel.value);
+      }
       alert("解析失敗：\n" + err.message);
     } finally {
       btnRun.disabled = false;
