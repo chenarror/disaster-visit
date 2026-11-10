@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>112年度 臺南市永康區永康國民小學 校園災害防救計畫</title>
+<style>
+:root{--bg:#faf6ec;--card:#fff;--ink:#2b2418;--mute:#6f6553;--line:#e6dcc4;--amb:#b8741a;--amb2:#f3d9a4;--grn:#5f7a3a;--grn2:#dfe8cc;--red:#b4452f;--red2:#f4d3ca;--blu:#2f5d7c;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17140e;--card:#221d14;--ink:#f1e9d8;--mute:#b3a88f;--line:#3a3222;--amb:#e0a24a;--amb2:#4a3615;--grn:#9dbb70;--grn2:#2c3820;--red:#ef8a74;--red2:#4a2219;--blu:#7fb2d4}}
+:root[data-theme="dark"]{--bg:#17140e;--card:#221d14;--ink:#f1e9d8;--mute:#b3a88f;--line:#3a3222;--amb:#e0a24a;--amb2:#4a3615;--grn:#9dbb70;--grn2:#2c3820;--red:#ef8a74;--red2:#4a2219;--blu:#7fb2d4}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 52px);scroll-behavior:smooth;overflow-x:clip}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+nav a{flex:none;color:var(--ink);text-decoration:none;font-size:14px;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);transition:all .15s}
+nav a:hover{border-color:var(--amb);color:var(--amb)}
+.wrap{max-width:960px;margin:0 auto;padding:0 14px 40px}
+header{padding:22px 0 10px}
+header small{display:block;color:var(--amb);font-size:13px;font-weight:700;letter-spacing:.06em}
+h1{font-size:clamp(22px,3vw,30px);line-height:1.28;letter-spacing:.01em;margin:8px 0 14px;max-width:32em}
+@media(max-width:640px){header{padding:18px 0 8px}h1{font-size:clamp(22px,6vw,26px);line-height:1.32;margin-bottom:12px}}
+header p{margin:4px 0;color:var(--mute);font-size:14px}
+h2{font-size:22px;margin:38px 0 12px;display:flex;gap:10px;align-items:center}
+h2 b{background:var(--amb);color:#fff;border-radius:8px;padding:0 10px;font-size:18px}
+h3{font-size:16px;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+@media(min-width:640px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;border-top:4px solid var(--amb)}
+.kpi:nth-child(2){border-top-color:var(--grn)}.kpi:nth-child(3){border-top-color:var(--blu)}.kpi:nth-child(4){border-top-color:var(--red)}
+.kpi b{display:block;font-size:28px;line-height:1.15}.kpi span{font-size:13px;color:var(--mute)}
+.tl{margin:0;padding:0 0 0 18px;border-left:3px solid var(--amb2);list-style:none}
+.tl li{position:relative;padding:0 0 10px 10px;font-size:15px}
+.tl li::before{content:"";position:absolute;left:-25px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--amb)}
+.tl b{color:var(--amb)}
+.row{display:grid;grid-template-columns:92px 1fr 64px;gap:8px;align-items:center;margin:7px 0;font-size:14px}
+.row i{font-style:normal;text-align:right;font-weight:700}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden;display:flex}
+.bar span{display:block;height:100%}
+.sg{display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;margin:9px 0;font-size:14px}
+.sg .bar{height:26px;border-radius:6px}
+.sg .bar span{color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mute);margin:6px 0}
+.lg s{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px;text-decoration:none}
+.c1{background:var(--grn)}.c2{background:var(--amb)}.c3{background:var(--red)}.c4{background:var(--blu)}
+.two{display:grid;gap:12px}@media(min-width:720px){.two{grid-template-columns:1fr 1fr}}
+.three{display:grid;gap:10px}@media(min-width:720px){.three{grid-template-columns:repeat(3,1fr)}}
+.flow-pair,.map-pair{grid-template-columns:minmax(0,1fr)}
+.map-pair{grid-template-columns:minmax(0,1fr);align-items:stretch}.map-pair>.card{margin:0;min-width:0}.map-preview{display:block;width:100%;height:clamp(320px,38vw,480px);border:1px solid var(--line);border-radius:10px;background:var(--bg);margin-top:10px}
+.steps{display:grid;gap:8px;margin:0;padding:0;list-style:none;counter-reset:s}@media(min-width:1100px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}}
+.steps li{counter-increment:s;padding-left:34px;position:relative;font-size:14.5px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--amb);color:#fff;text-align:center;line-height:24px;font-size:13px;font-weight:700}
+.flow-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}.flow-steps li{padding:10px 12px 10px 44px;background:var(--bg);border:1px solid var(--line);border-radius:10px;line-height:1.55;min-height:48px}.flow-steps li::before{left:10px;top:10px}
+@media(max-width:719px){.flow-steps{grid-template-columns:minmax(0,1fr)}}
+.sc{background:var(--amb2);border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:15px}
+.sc b{font-size:18px}
+.fl{margin:10px 0}.fl h3{display:flex;justify-content:space-between;align-items:baseline}.fl h3 small{font-weight:400;color:var(--mute)}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:8px}
+.cl{border:2px solid transparent;border-radius:10px;padding:9px 8px;text-align:center;cursor:pointer;color:#fff;font:inherit;line-height:1.3;transition:transform .12s}
+.cl:hover{transform:translateY(-1px)}
+.cl b{display:block;font-size:15px}.cl span{font-size:12px;opacity:.95;display:block;margin-top:2px}
+.cl.sel{border-color:var(--ink);box-shadow:0 0 0 2px var(--amb2)}
+.cl.l{background:var(--grn)}.cl.m{background:var(--amb)}.cl.h{background:var(--red)}.cl.b{background:var(--blu)}
+#det{background:var(--card);border:1px dashed var(--amb);border-radius:12px;padding:14px 16px;font-size:14.5px;min-height:92px;margin-top:12px}
+.btn{display:inline-block;background:var(--amb);color:#fff;text-decoration:none;border-radius:10px;padding:9px 16px;font-size:15px;margin:4px 6px 4px 0;font-weight:600}
+.btn.o{background:transparent;color:var(--amb);border:1px solid var(--amb)}
+.ramp-card{border-top:4px solid var(--amb);padding:18px}
+.ramp-card-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.ramp-card-head h3{font-size:20px;line-height:1.4;margin:0}
+.ramp-label{flex:none;background:var(--amb2);color:var(--ink);font-size:13px;font-weight:700;border-radius:99px;padding:3px 10px}
+.ramp-card>p{font-size:15px;color:var(--mute);margin:6px 0 14px}
+.ramp-actions{display:grid;grid-template-columns:1fr;gap:10px}
+.ramp-action{display:flex!important;flex-direction:column;justify-content:center;align-items:flex-start;gap:3px;min-height:72px;padding:12px 16px!important;border-radius:12px!important;text-decoration:none;font-size:17px!important;font-weight:700}
+.ramp-action small{font-size:13px;font-weight:400;line-height:1.5;opacity:.9}
+.ramp-action.primary{background:var(--amb);color:#fff}
+.ramp-action.secondary{background:var(--card);color:var(--amb);border:1px solid var(--amb)}
+@media(min-width:640px){.ramp-actions{grid-template-columns:1fr 1fr}}
+.sw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:300px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--grn2);color:var(--ink)}
+.ok{color:var(--grn);font-weight:700}
+.warn{color:var(--red);font-weight:700}
+.note{font-size:12.5px;color:var(--mute);margin:8px 0 0}
+.src{display:grid;gap:8px}.src a,.src div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);font-size:14.5px}.src a::after{content:"開啟 ↗";flex:none;color:var(--amb);font-size:13px;font-weight:700}.src small{display:block;color:var(--mute);font-size:12.5px}
+.zm{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);cursor:zoom-in;display:block}#lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:12px;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;object-fit:contain}
+.k5{display:grid;gap:8px 18px;font-size:14.5px}@media(min-width:640px){.k5{grid-template-columns:1fr 1fr}}.k5 b{color:var(--amb)}
+.tm{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}@media(min-width:640px){.tm{grid-template-columns:repeat(3,1fr)}}
+.tm div{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14px;border-left:5px solid var(--t)}.tm small{color:var(--mute)}
+.ph,.tf{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px}.ph button,.tf button{flex:none;font:inherit;font-size:13.5px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:5px 12px;cursor:pointer;line-height:1.3}
+.ph button small{display:block;color:var(--mute);font-size:11.5px}.ph button.on,.tf button.on{background:var(--amb);border-color:var(--amb);color:#fff}.ph button.on small{color:#fff}
+.ln{display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px}.ln:last-child{border:0}
+.tg{flex:none;width:64px;text-align:center;color:#fff;border-radius:6px;font-size:12.5px;padding:2px 0;height:fit-content;background:var(--t)}.ln i{flex:none;width:48px;font-style:normal;color:var(--mute);font-size:12.5px;padding-top:2px}
+.nt{background:var(--amb2);border-radius:10px;padding:8px 12px;font-size:13.5px;margin-top:8px}
+.img-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:10px}
+.img-box{border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--bg)}
+.img-box small{display:block;font-weight:700;margin-bottom:5px;color:var(--ink);font-size:13px}
+:root{--t0:#b4452f;--t1:#5f7a3a;--t2:#b8741a;--t3:#2f5d7c;--t4:#7a5c9e;--t5:#c0547a;--t6:#6f6553}
+footer{margin-top:30px;font-size:12.5px;color:var(--mute);text-align:center}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#s1">壹 基本資料與環境</a>
+  <a href="#s2">貳 人員與防救組織</a>
+  <a href="#s3">參 防災地圖與應變</a>
+  <a href="#map3d">3D 檢視</a>
+  <a href="#script">應變流程腳本</a>
+  <a href="#buildings">校舍與平面圖</a>
+  <a href="#s4">肆 整備與復原措施</a>
+  <a href="#s5">伍 原始文件</a>
+</nav>
+<div class="wrap">
+<header>
+<p style="margin:0 0 10px">
+  <a class="btn" href="./documents/disaster-plan.pdf" target="_blank" rel="noopener">開啟原始防災計畫書（PDF）</a>
+  <a class="btn o" href="./evacuation-3d-view.html" target="_blank" rel="noopener">開啟互動式 3D 防災地圖 ↗</a>
+</p>
+<small>臺南市永康區永康國民小學・校園災害防救計畫書（版本 3｜112.02.10 修訂）</small>
+<h1>112年度 臺南市永康區永康國民小學 校園災害防救計畫</h1>
+<section class="card" id="attendees" style="margin:12px 0 14px">
+<h2 style="font-size:20px;margin:0 0 12px">校園災害防救核心幹部與應變編組</h2>
+<div class="two">
+<div>
+<h3 style="color:var(--amb);margin:0 0 6px">防救災指揮與業務核心</h3>
+<ol style="margin:0;padding-left:1.35em">
+<li><b>指揮官</b>｜校長 洪國展（0978-027071｜kwojan@tn.edu.tw）</li>
+<li><b>指揮官代理人／發言人</b>｜學務主任 蕭堯駿（0933-514178｜tb9321@tn.edu.tw）</li>
+<li><b>發言人代理人</b>｜輔導主任 詹榮原（06-2324462#941）</li>
+<li><b>防災業務負責人 1</b>｜學務主任 蕭堯駿（06-2324462#921）</li>
+<li><b>防災業務負責人 2</b>｜生教組長 姜瑩（0988-032241｜tammy1201@tn.edu.tw）</li>
+<li><b>防災避難箱放置地點</b>｜司令台後儲藏間（本文印製 4 份）</li>
+</ol>
+</div>
+<div>
+<h3 style="color:var(--amb);margin:0 0 6px">校園緊急應變小組六組組長</h3>
+<ul style="margin:0;padding-left:1.35em">
+<li><b>指揮組</b>｜校長 洪國展（代理人：學務主任 蕭堯駿）</li>
+<li><b>搶救組（滅火班）</b>｜體育組長 周偉明（共 5 人＋科任健體教師）</li>
+<li><b>通報組（通報班）</b>｜生教組長 姜瑩（共 3 人，含體衛組長、幼兒主任）</li>
+<li><b>避難引導組（引導班）</b>｜教務主任 黃筱棻（行政10人＋各班任課教師）</li>
+<li><b>安全防護組（安防班）</b>｜總務主任 朱桓顯（共 9 人，含總務、會計、保全）</li>
+<li><b>緊急救護組（救護班）</b>｜輔導主任 詹榮原（共 9 人，含護理師周怡吟、黃秀惠）</li>
+</ul>
+</div>
+</div>
+</section>
+<p>學校地址：710 臺南市永康區永康里中山南路 637 號（經度 120°15'21"｜緯度 23°1'33"）｜最後安檢與修訂日：中華民國 112 年 02 月 10 日</p>
+<div class="kpis">
+<div class="kpi"><b>179</b><span>教職員工總數（正式159＋非正式20）</span></div>
+<div class="kpi"><b>2,505</b><span>在校學生總數（國小2,363＋幼生136＋身障6）</span></div>
+<div class="kpi"><b>94+3</b><span>總班級數（一般87＋幼兒6＋特教1+3巡迴）</span></div>
+<div class="kpi"><b>7棟+1廚</b><span>校園建築規模（含禮堂避難場所）</span></div>
+</div>
+</header>
+
+<h2 id="s1"><b>壹</b>學校基本資料與潛在災害評估</h2>
+<div class="two">
+<div class="card">
+<h3>學校環境與基本規模</h3>
+<div class="k5" style="grid-template-columns:1fr">
+<div><b>學校全銜</b>　臺南市市立永康國民小學</div>
+<div><b>校址與座標</b>　臺南市永康區永康里中山南路 637 號（東經 120°15'21"、北緯 23°1'33"）</div>
+<div><b>地形與周邊</b>　位處嘉南平原南段永康區核心地帶，地勢平坦；北臨中山路41巷、西臨永正路、南臨中山南路（省道台20線）、東臨中山路41巷。</div>
+<div><b>交通與志工</b>　自有交通車 1 輛｜志工團隊 60 人｜學校網站：<a href="http://www.ykes.tn.edu.tw" target="_blank" rel="noopener">http://www.ykes.tn.edu.tw</a></div>
+<div><b>潛在災害別</b>　位於 <b style="color:var(--red)">二類</b> 災害潛勢範圍內：<b>地震災害</b>（鄰近永康斷層敏感區）、<b>淹水災害</b>（強降雨積淹水風險）</div>
+</div>
+</div>
+<div class="card">
+<h3>校園災害防救計畫修訂歷程</h3>
+<ul class="tl">
+<li><b>110年5月10日（版本 1）</b> 依據教育部《校園災害防救計畫撰寫手冊》完成初版編撰，並於 <b>110年5月16日</b> 校園災害防救會報審議通過。</li>
+<li><b>111年8月30日（版本 2）</b> 配合學年度人事異動與防救災資源更新進行第二次修訂，於 <b>111年8月31日</b> 校園災害防救會報通過。</li>
+<li><b>112年2月5日</b> 完成全校 7 棟校舍建築物耐震與結構安全自主檢查（梁柱無裂縫、無基礎沉陷、無鋼筋裸露）。</li>
+<li><b>112年2月10日（版本 3）</b> 完成最新年度計畫修訂與防救災器材全面盤點，於 <b>112年2月15日</b> 校園災害防救會報通過。</li>
+</ul>
+</div>
+</div>
+
+<div class="two">
+<div class="card">
+<h3>圖 2.1 校園周邊道路圖</h3>
+<img class="zm" alt="圖 2.1 校園周邊道路圖" src="./assets/fig2-1-road-map.png">
+<p class="note">點圖片可放大。學校南臨中山南路、西臨永正路、北及東臨中山路41巷，距永康派出所僅 0.2 公里（1分鐘）、永康消防分隊 0.5 公里（2分鐘）。</p>
+</div>
+<div class="card">
+<h3>圖 2.2 校園平面配置圖</h3>
+<img class="zm" alt="圖 2.2 校園平面配置圖" src="./assets/fig2-2-campus-layout.png">
+<p class="note">點圖片可放大。詳列行政大樓、教學大樓、美術與西棟大樓、南棟大樓、禮堂、學思館、國樂大樓及午餐廚房各層空間配置。</p>
+</div>
+</div>
+
+<div class="two">
+<div class="card">
+<h3>圖 2.4.1 校園地震災害潛勢圖</h3>
+<img class="zm" alt="圖 2.4.1 校園地震災害潛勢圖" src="./assets/fig2-4-1-hazard-earthquake.jpg">
+<p class="note">點圖片可放大（瀏覽日期：110.01.02）。永康國小鄰近後甲里斷層／永康斷層敏感帶，地震列為本校第一優先防範災害。</p>
+</div>
+<div class="card">
+<h3>圖 2.4.2 校園淹水災害潛勢圖</h3>
+<img class="zm" alt="圖 2.4.2 校園淹水災害潛勢圖" src="./assets/fig2-4-2-hazard-flood.png">
+<p class="note">點圖片可放大（瀏覽日期：109.01.02）。短延時強降雨時周邊道路有積淹水可能，需落實排水溝清淤與垂直避難整備。</p>
+</div>
+</div>
+
+<div class="card">
+<h3>表 2.5 歷年校園災害事件紀錄與復原情形</h3>
+<div class="sw"><table>
+<thead><tr><th>發生日期</th><th>災害類型</th><th>發生地點</th><th>事件概述与受災情形</th><th>人員傷亡</th><th>處置與復原情形</th></tr></thead>
+<tbody>
+<tr><td><b>2005/10/21</b></td><td>人為／工程災害</td><td>校內（鄰近永康國中）</td><td>永康國中 PU 跑道施工導致有毒氣體外洩並隨風飄散至本校校內。</td><td class="ok">0 人</td><td>立即疏散受影響區域師生至上風處並通報環保與教育單位。</td></tr>
+<tr><td><b>2009/08/05</b></td><td>風災（莫拉克颱風）</td><td>禮堂</td><td>莫拉克颱風強風豪雨造成禮堂部分設施受損。</td><td class="ok">0 人</td><td>災後封鎖現場並辦理災損搶修復原工程。</td></tr>
+<tr><td><b>2016/09</b></td><td>風災（莫蘭蒂、梅姬颱風）</td><td>校內各區</td><td>禮堂天花板掉落、校內兩棵榕樹傾倒、頂樓大門毀損、美術大樓漏水、飲水機倒塌、大門柵欄機損壞。</td><td class="ok">0 人</td><td>啟動開口契約與災後復原經費，完成樹木扶正清運、天花板與大門柵欄修復。</td></tr>
+</tbody>
+</table></div>
+<p class="note">資料來源：計畫書第 38 頁「表 2.5 災害事件紀錄」。近五年內無重大人員傷亡事件。</p>
+</div>
+
+<h2 id="s2"><b>貳</b>人員結構與校園災害防救組織</h2>
+<div class="two">
+<div class="card"><h3>教職員工與支援人力（共 179 + 60 人）</h3><div id="staff"></div></div>
+<div class="card"><h3>全校學生結構與學制分布（共 2,505 人）</h3>
+<div class="lg"><span><s class="c1"></s>國小一般生（2,363人）</span><span><s class="c2"></s>幼兒園幼生（136人）</span><span><s class="c3"></s>身心障礙學生（6人）</span></div>
+<div id="grp"></div>
+<p class="note">全校班級總數：國小一般班級 87 班 ｜ 幼兒園 6 班 ｜ 特教班 1 班＋3 巡迴班</p></div>
+</div>
+
+<div class="two">
+<div class="card">
+<h3>圖 2.5 校園災害防救組織架構圖</h3>
+<img class="zm" alt="圖 2.5 校園災害防救組織架構圖" src="./assets/fig2-5-org-chart.jpg">
+<p class="note">點圖片可放大。平時為「校園災害防救委員會」，災時立即轉換為「校園災害緊急應變小組」。</p>
+</div>
+<div class="card">
+<h3>表 2.6 平時減災與整備工作權責分工表</h3>
+<div class="sw"><table>
+<thead><tr><th>工作事項</th><th>主責單位</th><th>協助單位</th></tr></thead>
+<tbody>
+<tr><td>1. 各處室權責分工、監督執行與建立自評機制</td><td><b>校長</b></td><td>各處室</td></tr>
+<tr><td>2. 危機處理小組與發言人機制運作</td><td><b>學務處</b></td><td>教務處</td></tr>
+<tr><td>3. 災害防救減災與整備工作、防救災設備採購建置</td><td><b>總務處</b></td><td>學務處</td></tr>
+<tr><td>4. 災害防救教育課程規劃、宣導活動與研習辦理</td><td><b>教務處</b></td><td>學務處</td></tr>
+<tr><td>5. 校園災害防救演練規劃、執行與檢討</td><td><b>學務處</b></td><td>總務處</td></tr>
+<tr><td>6. 經費預算統籌編列與支應</td><td><b>總務處</b></td><td>會計室</td></tr>
+<tr><td>7. 災後師生心理諮商與輔導追蹤</td><td><b>輔導室</b></td><td>學務處</td></tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+<div class="card">
+<h3>表 2.7.1 校園災害緊急應變小組編組概要</h3>
+<div class="tm">
+<div style="--t:var(--t0)"><b>指揮組</b><br>指揮官：洪國展 校長<br><small>代理/發言人：蕭堯駿 主任</small></div>
+<div style="--t:var(--t1)"><b>避難引導組</b>（10人+各班導師）<br>組長：黃筱棻 教務主任<br><small>教務/人事/廚房/各班任課教師</small></div>
+<div style="--t:var(--t2)"><b>搶救組（滅火班）</b>（5人+科任）<br>組長：周偉明 體育組長<br><small>活動組長、約僱人員、健體教師</small></div>
+<div style="--t:var(--t3)"><b>通報組（通報班）</b>（3人）<br>組長：姜瑩 生教組長<br><small>體衛組長郭宸同、幼兒主任陳怡君</small></div>
+<div style="--t:var(--t4)"><b>安全防護組</b>（9人）<br>組長：朱桓顯 總務主任<br><small>事務/會計/出納/幹事/助理/保全</small></div>
+<div style="--t:var(--t5)"><b>緊急救護組</b>（9人）<br>組長：詹榮原 輔導主任<br><small>護理師2人、輔導/特教/資料/專輔</small></div>
+</div>
+<h3 style="margin-top:16px">緊急應變小組成員清冊與所在位置（點選組別篩選）</h3>
+<div class="tf" id="team-filter"></div>
+<div class="sw"><table id="team-table">
+<thead><tr><th>組別</th><th>組內職務</th><th>職稱與姓名</th><th>平時所在建築／樓層</th><th>災時負責工作項目</th></tr></thead>
+<tbody id="team-tbody"></tbody>
+</table></div>
+<p class="note">資料來源：計畫書第 41～45 頁「表 2.7.1 緊急應變小組編組名冊」。考量學校人力，部分人員因專長跨組支援。</p>
+</div>
+
+<h2 id="s3"><b>參</b>防災地圖、逃生路線與應變流程</h2>
+<div class="sc"><b>各類災害避難核心原則</b>　<b style="color:var(--red)">地震</b>：先避難（趴下 Drop、掩護 Cover、穩住 Hold on），搖晃停止後再疏散至運動場集合地點 ｜ <b style="color:var(--blu)">淹水</b>：垂直避難（往各棟 2 樓以上高處疏散） ｜ <b style="color:var(--grn)">雨天／空污備案</b>：改至<b>禮堂（室內避難場所，容納 800 人）</b>或各棟走廊集合清點。</div>
+
+<div class="card flow-card"><h3>校園災害應變六大核心步驟（對應圖 4.1）</h3><ol class="steps flow-steps">
+<li><b>就地掩蔽與初期應變</b>：地震發生時任課教師立即指導學生執行「趴下、掩護、穩住」保護頭頸部，遠離窗戶與掉落物；廚房人員立即關閉瓦斯與火源。</li>
+<li><b>啟動緊急應變組織</b>：地震稍歇後，校長（指揮官）指示學務處透過全校廣播或對講機召集六組應變人員，於司令台前成立臨時指揮中心。</li>
+<li><b>安全巡查與全校疏散</b>：安全防護組切斷危險電源、開啟大門與側門；避難引導組確認逃生動線暢通後，引導全校 94 班師生戴防護頭套疏散至運動場集合地點。</li>
+<li><b>人數清點與災情通報</b>：各班導師清點人數回報避難引導組與通報組；通報組於時限內向臺南市教育局、教育部校安中心及永康區災害應變中心完成通報。</li>
+<li><b>搜尋搶救與傷患救護</b>：搶救組攜帶破壞器材與滅火器前往受損建物或緩降機區搜救受困人員；緊急救護組於綜合球場旁設立急救站，執行檢傷分類、AED 急救與送醫。</li>
+<li><b>家長接送、收容與復原</b>：若無法復課，於大門椰林大道開設「災時家長接送區」憑接送卡放學；配合區公所辦理臨時收容、環境消毒、心理輔導與復課補課。</li>
+</ol></div>
+
+<h3 id="script" style="font-size:19px;margin:24px 0 8px">災害應變流程腳本（互動時間軸）</h3>
+<div class="card"><h3>應變情境與通報基準設定</h3><div class="k5">
+<div><b>主要防範災害</b>　地震災害（鄰近永康斷層）、風水災（颱風豪雨淹水）、火災與人為災害</div>
+<div><b>指揮中心位置</b>　運動場北側司令台前（雨天備案：行政大樓穿堂／禮堂）</div>
+<div><b>室外集合地點</b>　運動場草坪集結區（急救站設於綜合球場西北側）</div>
+<div><b>室內避難場所</b>　禮堂（RC構造，可容納 800 人，具無障礙斜坡道）</div>
+<div><b>校安通報時限</b>　甲級（人員死亡/重傷）2 小時內、乙級 24 小時內、丙級 72 小時內完成校安通報網通報</div>
+<div><b>醫療後送動線</b>　經中山南路大門／永正路送往奇美醫院（4.3km）、榮總臺南分院（4.7km）或成大醫院（5.2km）</div>
+</div></div>
+
+<div class="card"><h3>【校園災害應變各階段行動腳本】各階段應變作為（選階段，並可篩選單一組別）</h3>
+<div class="ph" id="ph"></div><div class="tf" id="tf"></div>
+<div id="pb"></div>
+<p class="note">資料來源：永康國小 112 年校園災害防救計畫書第四章「災害應變」（第 58～62 頁，圖 4.1 校園災害應變流程圖及各組作業規範）。</p>
+</div>
+
+<div class="two map-pair"><div class="card" id="map3d"><div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap"><div><h3>互動式 3D 防災地圖（含 200 人疏散模擬與行政大樓 1F–4F 立體樓層）</h3><p class="note">可在下方預覽中直接拖曳、縮放、切換「校園 3D / 行政大樓 3D / 平面配置圖」與定位各防災設施；也可另開完整視窗操作。</p></div><a class="btn" href="./evacuation-3d-view.html" target="_blank" rel="noopener noreferrer" style="margin:0">另開完整 3D 地圖 ↗</a></div><iframe class="map-preview" src="./evacuation-3d-view.html" title="臺南市永康國小互動式 3D 防災地圖預覽" loading="lazy" allow="fullscreen"></iframe></div></div>
+
+<div class="card">
+<h3>圖 3.3 臺南市永康區永康國民小學 校園防災地圖（地震）</h3>
+<img class="zm" alt="圖 3.3 校園防災地圖（地震）" src="./assets/fig3-3-disaster-map.jpg">
+<p class="note">點圖片可放大（110.04 總務處編製，2079×1472 高解析度）。完整標示室外避難處所（運動場）、指揮中心（司令台前）、急救站（綜合球場）、健康中心与 AED（教學大樓1F）、物資儲備點（午餐廚房）、通訊設備放置點（聯合大辦公室）、救援器材放置點（司令台後）、警衛室、災時家長接送區（大門椰林大道）及 7 處須注意區域。</p>
+</div>
+
+<div class="two">
+<div class="card">
+<h3>圖 4.1 校園災害應變流程圖</h3>
+<img class="zm" alt="圖 4.1 校園災害應變流程圖" src="./assets/fig4-1-response-flow.png">
+<p class="note">點圖片可放大。涵蓋階段一（災害發生初期）、階段二（啟動應變組織、疏散、搶救、救護、巡查、接送與收容）、階段三（復原階段）。</p>
+</div>
+<div class="card">
+<h3>圖 4.2 災害通報流程圖</h3>
+<img class="zm" alt="圖 4.2 災害通報流程圖" src="./assets/fig4-2-report-flow.png">
+<p class="note">點圖片可放大。明定教育部校安中心、臺南市政府教育局（學輔校安科）、臺南市災害應變中心及永康區災害應變中心雙向通報機制。</p>
+</div>
+</div>
+
+<div class="card" id="buildings">
+<h3>表 2.2 & 2.3 校園 7 棟校舍與獨立午餐廚房安全資料與各樓層平面圖（點選建築切換）</h3>
+<div class="lg">
+  <span><s class="c1"></s>室內避難場所（禮堂）</span>
+  <span><s class="c4"></s>主要教學與行政大樓（4F）</span>
+  <span><s class="c2"></s>已完成耐震補強校舍</span>
+  <span><s class="c3"></s>獨立廚房／物資儲備點</span>
+</div>
+<div id="floors"></div>
+<div id="det"></div>
+<div id="fp" style="margin-top:14px"></div>
+<p class="note">點選上方任一建築物卡片，即可檢視該棟建築之結構安全檢查紀錄、耐震補強歷程、避難設備（緩降機、避難滑梯、無障礙斜坡道）與全部樓層平面圖（點擊圖片可全螢幕放大）。</p>
+</div>
+
+<h2 id="s4"><b>肆</b>減災整備、應變器材檢核與復原措施</h2>
+<div class="two">
+<div class="card">
+<h3>圖 3.1 減災與整備工作架構圖</h3>
+<img class="zm" alt="圖 3.1 減災與整備工作架構圖" src="./assets/fig3-1-prep-structure.png">
+<p class="note">點圖片可放大。包含校園環境安全改善、防災教育課程與宣導、防救災演練、應變器材整備及外部支援協定。</p>
+</div>
+<div class="card">
+<h3>圖 3.2 校園環境安全自主調查流程圖</h3>
+<img class="zm" alt="圖 3.2 校園環境安全自主調查流程圖" src="./assets/fig3-2-survey-flow.png">
+<p class="note">點圖片可放大。每學期開學前定期執行校舍結構、非結構物（書櫃、燈具、女兒牆）、電力與消防系統安全檢核。</p>
+</div>
+</div>
+
+<div class="card ramp-card">
+<div class="ramp-card-head"><span class="ramp-label">年度改善與整備重點</span><h3>112年度 防救災器材盤點結果與待補強改善事項（表 3.1）</h3></div>
+<p>本校於 112 年 2 月 10 日完成全校六大類、共 31 項災害應變器材全面檢核。其中 30 項均已完備並定期維護；針對檢核發現之待補強項目，已納入本年度預算辦理採購改善：</p>
+<div class="sw"><table>
+<thead><tr><th>檢核項目類別</th><th>現況與改善補強說明</th><th>負責單位／狀態</th></tr></thead>
+<tbody>
+<tr><td><b>【待補強項目】安全管制用工具：夜間警示燈</b></td><td>目前數量 0 組。為強化夜間或停電期間校園危險區域警戒與封鎖線辨識度，<b>已列為本年度預算優先採購補強項目</b>。</td><td class="warn">學務處／總務處（本年度預算採購）</td></tr>
+<tr><td><b>校舍結構耐震補強工程</b></td><td>南棟大樓（107年6月完工）、學思館（108年4月完工）、西棟大樓（108年5月完工）、美術大樓（110年7月完工）均已完成耐震補強；全校 7 棟建物於 112.02.05 安檢全數合格。</td><td class="ok">總務處（已完成並定期安檢）</td></tr>
+<tr><td><b>高樓層避難與無障礙逃生設備</b></td><td>全校配置緩降機共 22 具（行政12、教學6、美術3、學思館1）、避難滑梯 2 座（行政大樓）、無障礙斜坡道 8 座（各棟均備）、緊急照明燈 173 組、ABC 滅火器 101 支。</td><td class="ok">總務處 林政賢組長（已完備）</td></tr>
+<tr><td><b>健康中心緊急救護與防疫儲備</b></td><td>健康中心外配置 AED 1 組，中心內備有急救箱、氧氣瓶、長背板加頭部固定器擔架、骨折固定板、緊急輪椅 2 部、額耳溫槍 80 支、醫用口罩 10,000 個、酒精 60 瓶、消毒水 10 桶。</td><td class="ok">健康中心 黃秀惠護理師（已完備）</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="card">
+<h3>表 3.1 校園災害應變器材完整檢核清冊（檢核日期：112.02.10）</h3>
+<div class="tf" id="eq-filter"></div>
+<div class="sw"><table>
+<thead><tr><th>器材類別</th><th>器材名稱</th><th>數量與單位</th><th>存放位置</th><th>保管／負責人</th><th>檢核狀態与備註</th></tr></thead>
+<tbody id="eq-tbody"></tbody>
+</table></div>
+<p class="note">資料來源：計畫書第 51～52 頁「表 3.1 災害應變器材整備表」。防災避難箱統一放置於司令台後儲藏間。</p>
+</div>
+
+<div class="two">
+<div class="card">
+<h3>表 3.2 外部支援與救災單位聯絡清冊</h3>
+<div class="sw"><table>
+<thead><tr><th>單位名稱</th><th>聯絡電話</th><th>距離／預估抵達</th></tr></thead>
+<tbody>
+<tr><td><b>永康分局永康派出所</b></td><td>06-2326081</td><td>0.2 km（約 1 分鐘）</td></tr>
+<tr><td><b>消防局第五大隊永康分隊</b></td><td>06-2326951</td><td>0.5 km（約 2 分鐘）</td></tr>
+<tr><td><b>奇美醫療財團法人奇美醫院</b></td><td>06-2812811</td><td>4.3 km（約 20 分鐘）</td></tr>
+<tr><td><b>高雄榮總臺南分院</b></td><td>06-3125101</td><td>4.7 km（約 13 分鐘）</td></tr>
+<tr><td><b>國立成功大學醫學院附設醫院</b></td><td>06-2353535</td><td>5.2 km（約 17 分鐘）</td></tr>
+<tr><td><b>永康區災害應變中心（民政課）</b></td><td>06-2010308#9</td><td>區級應變指揮</td></tr>
+<tr><td><b>臺南市災害應變中心／消防局</b></td><td>06-2989119／2975119</td><td>市級應變指揮</td></tr>
+<tr><td><b>教育部校安中心</b></td><td>02-33437822／33437855</td><td>中央校安通報</td></tr>
+<tr><td><b>臺南市政府教育局（學輔校安科）</b></td><td>06-2991111#8322</td><td>主管機關通報</td></tr>
+<tr><td><b>永康里辦公處（魏萬順里長）</b></td><td>06-2034102／0933-355705</td><td>社區聯防支援</td></tr>
+<tr><td><b>家長會長 黃孟隆／7-11緊急飲食 陳志成</b></td><td>0927-173966／0931-792741</td><td>家長會與緊急物資</td></tr>
+<tr><td><b>自來水永康服務所／台電搶修／大台南瓦斯</b></td><td>06-2325714／0800-222839／06-3136826</td><td>維生管線搶修</td></tr>
+</tbody>
+</table></div>
+</div>
+
+<div class="card">
+<h3>表 5.1 災後心理輔導資源與復原重建機制</h3>
+<div class="sw"><table>
+<thead><tr><th>機構名稱／復原項目</th><th>聯絡電話／執行內容</th></tr></thead>
+<tbody>
+<tr><td><b>教育部學生輔導諮商中心（溪南區-台南一中）</b></td><td>06-2371206#705（專案心理諮商轉介）</td></tr>
+<tr><td><b>臺南市政府教育局學生輔導諮商中心</b></td><td>06-2521083（駐區專業輔導人員支援）</td></tr>
+<tr><td><b>國立臺南大學輔導中心／杏樸身心健康關懷協會</b></td><td>06-2133111#691／06-2643158</td></tr>
+<tr><td><b>寬欣心理治療所（鄭皓仁院長）／慈恩心理治療所（邱似齡院長）</b></td><td>06-2510966／0968-025220</td></tr>
+<tr><td><b>生命線協談專線／張老師專線</b></td><td>1995／1980（24小時心理支持）</td></tr>
+<tr><td><b>環境衛生與防疫消毒（第五章 5.2）</b></td><td>由總務處與體衛組會同環保局（06-2686751）、衛生局（06-2679751）執行災後校園積水清除、漂白水消毒與飲水機水質檢驗。</td></tr>
+<tr><td><b>供水供電緊急處理与復課補課（第五章 5.2）</b></td><td>發電機優先供應指揮與通訊；教務處依受災停課天數擬定彈性補課計畫，確保學生受教權益。</td></tr>
+</tbody>
+</table></div>
+</div>
+</div>
+
+<h2 id="s5"><b>伍</b>原始文件與防災資訊網</h2>
+<div class="card"><p class="note" style="margin:0 0 10px">如需查閱原始計畫書、高解析度防災地圖或政府防救災公開資訊平台（表 2.4），可點選下列連結。</p>
+<div class="src">
+<a href="./documents/disaster-plan.pdf" target="_blank" rel="noopener"><span><b>臺南市永康區永康國民小學 112年校園災害防救計畫書（完整本文 PDF）</b><small>共 66 頁｜112年2月10日修訂版（含完整建築圖說、應變名冊與檢核表）</small></span></a>
+<a href="./evacuation-3d-view.html" target="_blank" rel="noopener"><span><b>永康國小 互動式 3D 防災地圖（全螢幕獨立視窗）</b><small>含校園 3D 量體、200 人疏散人流模擬、行政大樓 1F–4F 立體樓層與圖檔打包下載</small></span></a>
+<a href="./assets/fig3-3-disaster-map.jpg" target="_blank" rel="noopener"><span><b>圖 3.3 永康國小校園防災地圖（2079×1472 高解析原圖）</b><small>110.04 總務處編製｜含疏散路線、集合地點、防災設施圖例與通報電話</small></span></a>
+<a href="./assets/fig2-2-campus-layout.png" target="_blank" rel="noopener"><span><b>圖 2.2 永康國小校園平面配置圖（1338×914 高解析原圖）</b><small>詳列全校 7 棟大樓與廚房各樓層教室、處室及專科空間配置</small></span></a>
+<a href="https://disaster.moe.edu.tw/" target="_blank" rel="noopener"><span><b>教育部防災教育資訊網</b><small>表 2.4 防災公開資訊網｜校園防災計畫與教材資源</small></span></a>
+<a href="https://www.1991.tw/" target="_blank" rel="noopener"><span><b>內政部消防署 1991 報平安網路留言平臺</b><small>表 2.4 防災公開資訊網｜災時家庭與學校雙向報平安專線與平台</small></span></a>
+<a href="https://dmap.ncdr.nat.gov.tw/" target="_blank" rel="noopener"><span><b>國家災害防救科技中心（NCDR）災害潛勢地圖網站</b><small>表 2.4 防災公開資訊網｜地震、淹水、坡地與海嘯潛勢查詢</small></span></a>
+</div></div>
+<footer>臺南市永康區永康國民小學・112年度校園災害防救計畫互動資訊網</footer>
+</div>
+
+<script>
+/* 教職員工與支援人力長條圖 */
+var S=[
+  ["正式教職員",159,"含校長、教師、職員、護理師及正式編制人員"],
+  ["非正式編制",20,"含代理代課教師、約僱人員及臨時人員"],
+  ["志工團隊",60,"交通導護、圖書與校園防災協勤志工"]
+];
+document.getElementById("staff").innerHTML=S.map(function(s){
+  return '<div class="row"><span>'+s[0]+'</span><div class="bar"><span class="c1" style="width:'+(s[1]/160*100)+'%"></span></div><i>'+s[1]+' 人</i></div>'+(s[2]?'<div class="note" style="margin:-4px 0 6px 100px">'+s[2]+'</div>':'');
+}).join("");
+
+/* 學生結構視覺化長條圖 */
+var G=[
+  ["國小一般部",2363,0,0,"87 班（1～6 年級）"],
+  ["附設幼兒園",0,136,0,"6 班（大象、白兔、孔雀、袋鼠、小猴、羚羊班）"],
+  ["特殊教育生",0,0,6,"特教班 1 班 ＋ 3 巡迴班（特教甲/乙、資源班）"]
+];
+document.getElementById("grp").innerHTML=G.map(function(g){
+  var v=g[1]||g[2]||g[3],c=g[1]?1:(g[2]?2:3),w=Math.max(12,Math.round(Math.log10(v+1)/Math.log10(2500)*100));
+  return '<div class="sg"><span>'+g[0]+'</span><div class="bar"><span class="c'+c+'" style="width:'+w+'%">'+v+' 人</span></div></div><div class="note" style="margin:-5px 0 6px 88px">'+g[4]+'</div>';
+}).join("");
+
+/* 表 2.7.1 緊急應變小組完整成員清冊 */
+var TEAM_NAMES=["指揮組","搶救組","通報組","避難引導組","安全防護組","緊急救護組"];
+var MEMBERS=[
+  [0,"指揮官","校長 洪國展","行政大樓 2F（校長室）","綜理並指揮全校災害防救應變與重大決策（0978-027071）"],
+  [0,"指揮官代理人／發言人","學務主任 蕭堯駿","行政大樓 1F（學務處）","代理指揮官職務、統一對外發言與媒體聯繫（0933-514178；發言人代理：詹榮原）"],
+  [1,"組長","體育組長 周偉明","行政大樓 1F（學務處）","指揮搶救組（滅火班）進行受困人員搜尋、初期滅火與重物搬移"],
+  [1,"組員","活動組長 林三益","行政大樓 1F（學務處）","操作破壞工具、移動式發電機與初期滅火搶救"],
+  [1,"組員","約僱人員 溫于萱","行政大樓 1F（學務處）","協助救災器材搬運、臨時指揮中心與帳篷架設"],
+  [1,"組員","約僱人員 熊耀庭","行政大樓 1F（學務處）","協助救災器材搬運、重物清除與簡易搜救"],
+  [1,"組員","健體領域等科任教師","南棟大樓 1F／專科教室","就近支援初期滅火、器材搬運與緩降機待援區學生搶救"],
+  [2,"組長","生教組長 姜瑩","行政大樓 1F（學務處）","負責教育部校安中心、教育局與永康區災害應變中心災情通報（0988-032241）"],
+  [2,"組員","體衛組長 郭宸同","行政大樓 1F（學務處）","彙整操場集結區各班清點人數、聯繫警消與支援單位"],
+  [2,"組員","幼兒園主任 陳怡君","教學大樓 1F（幼兒園）","彙整幼兒園 6 班師生清點人數並回報通報組與家長聯繫"],
+  [3,"組長","教務主任 黃筱棻","行政大樓 1F（教務處）","統籌全校各棟大樓疏散路線確認、引導與師生人數清點回報"],
+  [3,"組員","註冊組長 楊嘉琪","行政大樓 1F（教務處）","協助行政大樓與教學大樓疏散引導、學生名冊核對"],
+  [3,"組員","教學組長 楊馥菁","行政大樓 1F（教務處）","協助各樓層疏散動線引導與集結區秩序維護"],
+  [3,"組員","課研組長 楊宗翰","行政大樓 1F（教務處）","協助疏散動線巡查、引導與災時家長接送區分流"],
+  [3,"組員","資訊組長 吳宗穎","行政大樓 1F（教務處）","維護緊急通訊資訊設備並協助疏散引導"],
+  [3,"組員","人事主任 黃紹萍","行政大樓 1F（人事室）","清點全校教職員工出勤與疏散人數並回報指揮中心"],
+  [3,"組員","人事助理 黃馨瑩","行政大樓 1F（人事室）","協助教職員工清點與行政大樓疏散引導"],
+  [3,"組員","幹事 王柔分","行政大樓 1F（教務處）","協助集結區班級立牌發放與人數統計"],
+  [3,"組員","營養師 王瓊嫣","獨立午餐廚房 1F","關閉廚房瓦斯電源、管理物資儲備點並引導廚房人員疏散"],
+  [3,"組員","午餐執秘 謝幸慧","獨立午餐廚房 1F","協助廚房安全關閉與緊急飲用水、乾糧物資調度"],
+  [3,"組員","各班任課教師（87+6+1班）","各棟大樓各班教室","指導學生就地掩蔽（趴掩穩）、帶領學生疏散至運動場並清點安撫"],
+  [4,"組長","總務主任 朱桓顯","行政大樓 1F（總務處）","統籌校舍結構安全巡查、電力瓦斯切斷、危險區封鎖與門禁交通管制"],
+  [4,"組員","事務組長 林政賢","行政大樓 1F（總務處）","關閉或搶修水電瓦斯管線、啟動發電機、拉設危險建物封鎖線"],
+  [4,"組員","會計主任 游淑婷","行政大樓 1F（會計室）","協助安全管制與災後搶修經費緊急支應"],
+  [4,"組員","出納組長 李意青","行政大樓 1F（總務處）","重要財物文書保全與安全防護警戒"],
+  [4,"組員","幹事 曾彥中","行政大樓 1F（總務處）","巡查各棟校舍受損情形、設置警戒錐與警示標誌"],
+  [4,"組員","幹事 王雯","行政大樓 1F（總務處）","協助校園周邊側門開啟與危險區域管制"],
+  [4,"組員","事務助理 林錦足","行政大樓 1F（總務處）","協助器材發放與出入口安全警戒"],
+  [4,"組員","事務助理 施麗卿","行政大樓 1F（總務處）","協助器材發放與出入口安全警戒"],
+  [4,"組員","保全人員 蔡暢文","大門警衛室 1F","開啟大門與側門供救災車輛進出、管制家長接送區交通動線"],
+  [5,"組長","輔導主任 詹榮原","行政大樓 1F（輔導室）","統籌急救站架設、傷患檢傷分類、緊急救護後送與師生心理安撫"],
+  [5,"組員","護理師 周怡吟","教學大樓 1F（健康中心）","攜帶急救箱與 AED 於綜合球場旁設立急救站，執行傷患急救與包紮"],
+  [5,"組員","護理師 黃秀惠","教學大樓 1F（健康中心）","執行傷患檢傷分類、急救處置、聯繫救護車與陪同後送醫院"],
+  [5,"組員","輔導組長 張嘉欣","行政大樓 1F（輔導室）","協助傷患搬運護理、受驚嚇師生心理安撫與輔導紀錄"],
+  [5,"組員","特教組長 邱幸儀","行政大樓 1F（輔導室）","優先協助身心障礙學生（6人）避難疏散、輪椅推運與特殊照護"],
+  [5,"組員","資料組長 沈靜韓","行政大樓 1F（輔導室）","記錄傷患名單與後送醫院動向，通知受傷學生家長"],
+  [5,"組員","藝才承辦 蔡懷萱","美術大樓 1F","協助美術與西棟大樓傷患救護及特殊學生照護"],
+  [5,"組員","專輔教師 陳飛彤","行政大樓 1F（輔導室）","提供受災師生危機心理介入與情緒安撫"],
+  [5,"組員","專輔教師 黃曉琪","行政大樓 1F（輔導室）","提供受災師生危機心理介入與情緒安撫"]
+];
+var tfEl=document.getElementById("team-filter"),tbEl=document.getElementById("team-tbody"),curTeam=-1;
+tfEl.innerHTML='<button class="on" data-t="-1">全部（'+MEMBERS.length+'筆）</button>'+TEAM_NAMES.map(function(n,i){
+  var cnt=MEMBERS.filter(function(m){return m[0]==i}).length;
+  return '<button data-t="'+i+'">'+n+'（'+cnt+'）</button>';
+}).join("");
+function renderTeamTable(){
+  tfEl.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",+b.dataset.t==curTeam)});
+  var list=MEMBERS.filter(function(m){return curTeam<0||m[0]==curTeam});
+  tbEl.innerHTML=list.map(function(m){
+    return '<tr><td><span class="tg" style="display:inline-block;--t:var(--t'+m[0]+')">'+TEAM_NAMES[m[0]]+'</span></td><td><b>'+m[1]+'</b></td><td>'+m[2]+'</td><td>'+m[3]+'</td><td>'+m[4]+'</td></tr>';
+  }).join("");
+}
+tfEl.addEventListener("click",function(e){var b=e.target.closest("button");if(b){curTeam=+b.dataset.t;renderTeamTable()}});
+renderTeamTable();
+
+/* 表 2.2 & 2.3 校園 7 棟建築與午餐廚房互動檢視器 */
+var BUILDINGS=[
+  {
+    id:"bld1", code:"7-1", name:"行政大樓", year:"民國91年", floors:"地上4層／地下1層", struct:"鋼筋混凝土（RC）",
+    shelter:"否（一般校舍）", checkDate:"112.02.05", rooms:60, cap:1800, toilet:19, accToilet:4, stairs:3, elev:1,
+    equip:"緩降機 12 具、避難滑梯 2 座、無障礙斜坡道 1 座",
+    corridor:"走廊外側有柱｜梁柱無裂縫、無沉陷、無鋼筋裸露",
+    usage:"1F：總務處、教務處、輔導室、學務處（聯合大辦公室）、特教甲/乙、資源班、天井｜2F：校長室、會議室、電腦教室、203~216教室｜3F：401~411教室、電腦教室3｜4F：601~612教室、教師室1｜B1：地下室（停車場禁入區）",
+    cls:"b",
+    imgs:[
+      ["外觀正面照","./assets/bld1-front.jpg"],
+      ["外觀側面照","./assets/bld1-side.jpg"],
+      ["B1 地下一層平面圖","./assets/bld1-b1.jpg"],
+      ["1F 一層平面圖（各處室與特教班）","./assets/bld1-1f.jpg"],
+      ["2F 二層平面圖（校長室與會議室）","./assets/bld1-2f.jpg"],
+      ["3F 三層平面圖（四年級與電腦室）","./assets/bld1-3f.jpg"],
+      ["4F 四層平面圖（六年級教室）","./assets/bld1-4f.jpg"]
+    ]
+  },
+  {
+    id:"bld2", code:"7-2", name:"教學大樓", year:"民國88年", floors:"地上4層／地下0層", struct:"鋼筋混凝土（RC）",
+    shelter:"否（一般校舍）", checkDate:"112.02.05", rooms:43, cap:1200, toilet:20, accToilet:1, stairs:3, elev:1,
+    equip:"緩降機 6 具、無障礙斜坡道 1 座（1F 設有健康中心與 AED）",
+    corridor:"走廊外側有柱｜梁柱無裂縫、無沉陷、無鋼筋裸露",
+    usage:"1F：健康中心（含AED）、幼兒園辦公室、大象班、白兔班、孔雀班、袋鼠班、小猴班、羚羊班、活動室1~3｜2F：104~114教室｜3F：501~506教室、專科教室｜4F：音樂教室1~2、507~512教室、專科教室",
+    cls:"b",
+    imgs:[
+      ["外觀正面照","./assets/bld2-front.jpg"],
+      ["外觀側面照","./assets/bld2-side.jpg"],
+      ["1F 一層建築平面圖","./assets/bld2-1f.png"],
+      ["2F 二層建築平面圖","./assets/bld2-2f.png"],
+      ["3F 三層建築平面圖","./assets/bld2-3f.png"],
+      ["4F 四層建築平面圖","./assets/bld2-4f.png"]
+    ]
+  },
+  {
+    id:"bld3", code:"7-3", name:"美術大樓(含西棟)", year:"民國84年", floors:"地上4層／地下1層", struct:"RC構造（增建鋼棚）",
+    shelter:"否（B1為防空避難室）", checkDate:"112.02.05（補強：108.05西棟、110.07美術）", rooms:28, cap:800, toilet:4, accToilet:1, stairs:3, elev:1,
+    equip:"緩降機 3 具、無障礙斜坡道 2 座",
+    corridor:"走廊外側有柱｜已完成西棟（108年5月）與美術大樓（110年7月）耐震補強工程",
+    usage:"B1：防空避難室、地下室（創鼓社團）｜1F~4F：二美、四美、六美、五美、各樓層美術術科教室、音樂教室3、多功能教室、幼兒園資源中心、教保中心、101~103教室",
+    cls:"m",
+    imgs:[
+      ["外觀正面照","./assets/bld3-front.jpg"],
+      ["外觀側面照","./assets/bld3-side.jpg"],
+      ["B1 地下層平面圖 (A)","./assets/bld3-b1-a.jpg"],
+      ["B1 地下層平面圖 (B)","./assets/bld3-b1-b.jpg"],
+      ["1F 一層平面圖 (A)","./assets/bld3-1f-a.jpg"],
+      ["1F 一層平面圖 (B)","./assets/bld3-1f-b.jpg"],
+      ["2F 二層平面圖 (A)","./assets/bld3-2f-a.jpg"],
+      ["2F 二層平面圖 (B)","./assets/bld3-2f-b.jpg"],
+      ["3F 三層平面圖 (A)","./assets/bld3-3f-a.jpg"],
+      ["3F 三層平面圖 (B)","./assets/bld3-3f-b.jpg"],
+      ["4F 四層平面圖 (A)","./assets/bld3-4f-a.jpg"],
+      ["4F 四層平面圖 (B)","./assets/bld3-4f-b.jpg"]
+    ]
+  },
+  {
+    id:"bld4", code:"7-4", name:"南棟大樓", year:"民國78年", floors:"地上3層／地下1層", struct:"RC構造（增建鋼棚）",
+    shelter:"否（B1為防空避難室）", checkDate:"112.02.05（補強：107年6月完工）", rooms:21, cap:600, toilet:6, accToilet:0, stairs:3, elev:0,
+    equip:"無障礙斜坡道 2 座",
+    corridor:"走廊外側無柱｜已完成 107 年 6 月校舍耐震補強工程",
+    usage:"B1：防空避難室｜1F：表演藝術教室、專科教室、體育器材室（炊事帳存放點）｜2F：301~307教室｜3F：308~314教室",
+    cls:"m",
+    imgs:[
+      ["外觀正面照","./assets/bld4-front.jpg"],
+      ["外觀側面照","./assets/bld4-side.jpg"],
+      ["B1 防空避難室平面圖","./assets/bld4-b1.jpg"],
+      ["1F 一層平面圖","./assets/bld4-1f.jpg"],
+      ["2F 二層平面圖","./assets/bld4-2f.jpg"],
+      ["3F 三層平面圖","./assets/bld4-3f.jpg"]
+    ]
+  },
+  {
+    id:"bld5", code:"7-5", name:"禮堂（避難場所）", year:"民國66年", floors:"地上1層／地下0層", struct:"鋼筋混凝土（RC）",
+    shelter:"是（指定室內防空／防災避難場所）", checkDate:"112.02.05", rooms:1, cap:800, toilet:0, accToilet:0, stairs:0, elev:0,
+    equip:"無障礙斜坡道 1 座（大型挑高集會與臨時收容空間）",
+    corridor:"走廊外側無柱｜梁柱無裂縫、無沉陷、無鋼筋裸露",
+    usage:"1F：大型禮堂／室內活動中心（災時或雨天作為全校室內避難集合場所與臨時收容空間，可容納 800 人）",
+    cls:"l",
+    imgs:[
+      ["禮堂外觀正面照","./assets/bld5-front.jpg"],
+      ["禮堂外觀側面照","./assets/bld5-side.jpg"],
+      ["1F 禮堂平面圖","./assets/bld5-1f.jpg"]
+    ]
+  },
+  {
+    id:"bld6", code:"7-6", name:"學思館", year:"民國69年", floors:"地上2層／地下0層", struct:"RC構造（增建鋼棚）",
+    shelter:"否（圖書室）", checkDate:"112.02.05（補強：108年4月完工）", rooms:2, cap:100, toilet:0, accToilet:0, stairs:1, elev:0,
+    equip:"緩降機 1 具、無障礙斜坡道 1 座",
+    corridor:"走廊外側無柱｜已完成 108 年 4 月耐震補強工程",
+    usage:"1F：圖書室（一樓閱覽區）｜2F：圖書室（二樓藏書與共讀區）",
+    cls:"m",
+    imgs:[
+      ["學思館外觀正面照","./assets/bld6-front.jpg"],
+      ["學思館外觀側面照","./assets/bld6-side.jpg"],
+      ["1F 一層平面圖","./assets/bld6-1f.jpg"],
+      ["2F 二層平面圖","./assets/bld6-2f.jpg"]
+    ]
+  },
+  {
+    id:"bld7", code:"7-7", name:"國樂大樓", year:"民國67年", floors:"地上2層／地下0層", struct:"RC構造（增建鐵皮屋）",
+    shelter:"否", checkDate:"112.02.05", rooms:2, cap:50, toilet:1, accToilet:0, stairs:1, elev:0,
+    equip:"一樓直接逃生出口、滅火器",
+    corridor:"走廊外側無柱｜梁柱無裂縫、無沉陷、無鋼筋裸露",
+    usage:"1F：愛的書庫、儲藏室、廁所｜2F：國樂團練教室",
+    cls:"b",
+    imgs:[
+      ["國樂大樓外觀正面照","./assets/bld7-front.jpg"],
+      ["國樂大樓外觀側面照","./assets/bld7-side.jpg"],
+      ["1F 一層平面圖","./assets/bld7-1f.png"],
+      ["2F 二層平面圖","./assets/bld7-2f.png"]
+    ]
+  },
+  {
+    id:"kitchen", code:"表2.3", name:"獨立午餐廚房", year:"民國85年", floors:"獨立地面1層（400 m²）", struct:"鋼筋混凝土（RC）",
+    shelter:"物資儲備點", checkDate:"112.02.05", rooms:4, cap:30, toilet:1, accToilet:0, stairs:0, elev:0,
+    equip:"滅火器 T10×3 支＋T20×2 支、獨立電源總開關、緊急出口標示燈、緊急照明燈、排風機",
+    corridor:"管理人：學務主任（0958-367375）｜代理人：王瓊嫣營養師（0931-203885）｜電力負荷 220V 50A / 110V 30A",
+    usage:"全校營養午餐供應廚房、災時緊急糧食與飲用水物資儲備點",
+    cls:"h",
+    imgs:[
+      ["午餐廚房外觀照","./assets/kitchen-front.jpg"],
+      ["1F 廚房平面配置圖","./assets/kitchen-1f.jpg"]
+    ]
+  }
+];
+
+var F=document.getElementById("floors"),D=document.getElementById("det"),FP=document.getElementById("fp");
+F.innerHTML='<div class="g">'+BUILDINGS.map(function(b,idx){
+  return '<button class="cl '+b.cls+(idx===0?' sel':'')+'" data-id="'+b.id+'"><b>'+b.code+' '+b.name+'</b><span>'+b.floors.split("／")[0]+'｜容納 '+b.cap+' 人</span></button>';
+}).join("")+'</div>';
+
+function selectBuilding(id){
+  F.querySelectorAll(".cl").forEach(function(el){el.classList.toggle("sel",el.dataset.id===id)});
+  var b=BUILDINGS.filter(function(x){return x.id===id})[0];
+  D.innerHTML='<h3 style="margin:0 0 8px;color:var(--amb)">'+b.code+' '+b.name+'（建造年份：'+b.year+'｜最後安檢日：'+b.checkDate+'）</h3>'+
+    '<div class="k5">'+
+    '<div><b>樓層與構造</b>　'+b.floors+'｜'+b.struct+'</div>'+
+    '<div><b>是否為避難場所</b>　'+b.shelter+'</div>'+
+    '<div><b>空間與容納量</b>　共 '+b.rooms+' 間空間｜可容納 <b>'+b.cap+'</b> 人</div>'+
+    '<div><b>垂直動線與浴廁</b>　樓梯 '+b.stairs+' 座、電梯 '+b.elev+' 座｜一般廁所 '+b.toilet+' 間、無障礙廁所 '+b.accToilet+' 間</div>'+
+    '<div style="grid-column:1/-1"><b>防救災與避難設備</b>　'+b.equip+'</div>'+
+    '<div style="grid-column:1/-1"><b>結構與走廊特性</b>　'+b.corridor+'</div>'+
+    '<div style="grid-column:1/-1"><b>各樓層空間用途</b>　'+b.usage+'</div>'+
+    '</div>';
+  FP.innerHTML='<h3 style="margin:0 0 6px">'+b.name+' 外觀照片與各樓層平面圖（共 '+b.imgs.length+' 張，點擊圖片放大）</h3>'+
+    '<div class="img-grid">'+b.imgs.map(function(im){
+      return '<div class="img-box"><small>'+im[0]+'</small><img class="zm" alt="'+b.name+' '+im[0]+'" src="'+im[1]+'"></div>';
+    }).join("")+'</div>';
+}
+F.addEventListener("click",function(e){var btn=e.target.closest(".cl");if(btn)selectBuilding(btn.dataset.id)});
+selectBuilding("bld1");
+</script>
+
+<script>
+/* 互動式應變流程腳本（時間軸） */
+(function(){
+var T=[["指揮",0],["引導",1],["搶救",2],["通報",3],["安防",4],["救護",5],["各班/其他",6]];
+var P=[
+  ["階段一","災害發生初期（地震速報／強震搖晃40秒）",[
+    [6,"1-1","各班任課教師：立即大聲指揮學生「趴下、掩護、穩住（Drop, Cover, Hold on）」，躲於課桌下抓緊桌腳、保護頭頸部，老師自身亦採低姿勢掩蔽。"],
+    [6,"1-2","室外上課班級（運動場／球場）：立即就地蹲下掩蔽，遠離建築物外牆、樹木、籃球架與電線桿。"],
+    [3,"1-3","午餐廚房人員（王瓊嫣營養師、謝幸慧執秘）：立即關閉瓦斯總開關、爐火與大功率電源，開啟廚房逃生門避免變形受困。"],
+    [4,"1-4","警衛室保全（蔡暢文）：確認大門柵欄機與側門開啟，保持救災通道暢通。"]
+  ],"核心原則：地震搖晃期間嚴禁奔跑下樓，優先保護頭頸部安全。"],
+  ["階段二-1","啟動校園緊急應變組織（地震稍歇）",[
+    [0,"2-1","指揮官（洪國展校長）或代理人（蕭堯駿學務主任）判斷災情，指示學務處透過全校廣播系統與無線電對講機宣布啟動「校園災害緊急應變小組」。"],
+    [0,"2-2","於運動場北側司令台前開設「臨時指揮中心」，取出司令台後儲藏間之防災避難箱、攜帶式揚聲器與對講機。"],
+    [1,"2-3","避難引導組（黃筱棻主任等）配戴安全帽、反光背心與哨子，分赴各棟大樓確認逃生樓梯與走廊無障礙物並回報指揮官。"],
+    [4,"2-4","安全防護組（朱桓顯主任、林政賢組長）檢查電力與自來水管線，必要時啟動移動式柴油發電機維持廣播與通訊。"],
+    [5,"2-5","緊急救護組（詹榮原主任、周怡吟與黃秀惠護理師）攜帶急救箱、AED、氧氣瓶、長背板擔架與緊急輪椅前往綜合球場旁設立「急救站」。"]
+  ],"使用器材：全校廣播系統、無線電對講機（12支）、攜帶式揚聲器（2個）、反光指揮背心（20件）。"],
+  ["階段二-2","全校避難疏散（集結至運動場）",[
+    [0,"3-1","指揮官接獲逃生動線安全回報後，下令全校廣播疏散：「請全校師生戴上防災頭套／書包護頭，遵循不語、不跑、不推原則，依疏散路線前往運動場集合地點。」"],
+    [6,"3-2","各班任課教師（87班國小＋6班幼兒園＋特教班）帶領學生沿建築內綠箭頭與建築外紅箭頭疏散路線撤離至運動場草坪集結。"],
+    [5,"3-3","特教組長（邱幸儀）與救護組人員優先協助身心障礙學生（6人）及行動不便者經無障礙斜坡道安全疏散。"],
+    [1,"3-4","避難引導組各組員於行政大樓、教學大樓、美術與西棟大樓、南棟大樓樓梯口與轉角處吹哨引導並維持秩序。"]
+  ],"雨天或空污備案：指揮官改指示疏散至「禮堂（室內避難場所，容納800人）」或各棟一樓安全走廊。"],
+  ["階段二-3","人員清點與災情通報",[
+    [6,"4-1","各班導師於運動場集合地點清點學生人數，並將清點結果（應到、實到、未到或受傷人數）回報避難引導組與通報組。"],
+    [1,"4-2","人事主任（黃紹萍）與人事助理（黃馨瑩）清點全校 179 名教職員工、廚房人員與志工出勤疏散人數。"],
+    [2,"4-3","通報組（姜瑩組長、郭宸同組長、陳怡君主任）彙整全校師生清點總表（學生2,505人、教職員179人）呈報指揮官。"],
+    [2,"4-4","通報組依規定時限向教育部校安中心（02-33437855）、臺南市教育局（06-2991111#8322）及永康區災害應變中心（06-2010308#9）完成災情與疏散通報。"]
+  ],"通報基準：若有失蹤或受困人員，立即通報指揮官指派搶救組展開搜尋。"],
+  ["階段二-4","受困搜尋搶救與初期滅火",[
+    [0,"5-1","若接獲班級回報有師生未到或受困於高樓層緩降機待援區，指揮官立即指派搶救組（周偉明組長）率隊前往搜救。"],
+    [2,"5-2","搶救組（周偉明、林三益、溫于萱、熊耀庭及健體教師）配戴安全帽與工作手套，攜帶萬用鑰匙、破壞工具組（鏟子、挖掘工具）及滅火器進入搜救。"],
+    [2,"5-3","針對二樓以上走廊受阻區域，協助操作緩降機（全校22具）或行政大樓避難滑梯（2座）引導受困師生安全下撤；若火勢或結構危險超過負荷，立即撤出並由通報組聯繫永康消防分隊（06-2326951，車程2分鐘）支援。"]
+  ],"搶救裝備：ABC乾粉滅火器（101支）、破壞工具組（2組）、萬用鑰匙（2組）、緩降機（22具）、避難滑梯（2座）。"],
+  ["階段二-5","傷患緊急救護、後送與心理安撫",[
+    [5,"6-1","緊急救護組（周怡吟、黃秀惠護理師）於綜合球場急救站對受傷師生進行檢傷分類、止血包紮、骨折固定板與長背板擔架固定，必要時使用 AED 及氧氣瓶。"],
+    [2,"6-2","重傷或需進一步醫療者，由通報組聯繫 119 救護車後送奇美醫院（06-2812811）、高雄榮總臺南分院（06-3125101）或成大醫院（06-2353535）。"],
+    [5,"6-3","資料組長（沈靜韓）記錄傷患動向並聯繫家長；輔導組長（張嘉欣）與專輔教師（陳飛彤、黃曉琪）對受驚嚇學生進行團體與個別情緒安撫。"]
+  ],"救護站配置：AED（1組）、急救箱、氧氣瓶、保暖毛毯、骨折固定板、長背板加頭部固定器擔架、緊急輪椅（2個）。"],
+  ["階段二-6","校園環境安全巡查與警戒管制",[
+    [4,"7-1","安全防護組（朱桓顯主任、林政賢組長、曾彥中幹事等）全面巡查 7 棟校舍、午餐廚房及校園 7 處「須注意區域」（北側門、生態園、B1停車場、東側車道、永正路側、中山南路側、禮堂國樂間）。"],
+    [4,"7-2","於受損建物、掉落物或塌陷區周圍擺設警戒錐（50只）、警示指揮棒（6組）並拉設封鎖線，嚴禁師生在安全確認前返回教室。"],
+    [0,"7-3","指揮官綜合安全防護組校舍巡查結果與餘震／氣象資訊，判斷「返回教室復課」或「宣布停課並啟動災時家長接送」。"]
+  ],"安全管制工具：警戒錐（50只）、反光指揮背心（20件）、警示指揮棒（6組）、監視器（5臺）。"],
+  ["階段三","災時家長接送、臨時收容與災後復原",[
+    [1,"8-1","【家長接送】若宣布停課放學，於中山南路大門「椰林大道」開設「災時家長接送區」，由避難引導組與各班導師核對家長身分逐一簽退放學。"],
+    [0,"8-2","【臨時收容】無法返家之師生或配合永康區公所開設收容所時，開啟禮堂（容納800人）並調度體育器材室炊事帳（5組）及廚房儲備物資提供安置。"],
+    [4,"8-3","【災後復原】災後由總務處與體衛組辦理校舍結構技師鑑定、水電搶修、校園環境消毒（消毒水10桶、酒精60瓶）；教務處規劃停課補課；輔導室連結溪南區學輔中心與醫療院所持續心理追蹤輔導。"]
+  ],"發言人機制：統一由學務主任蕭堯駿（或代理人詹榮原主任）對外說明災情與復課資訊。"]
+];
+var ph=document.getElementById("ph"),tf=document.getElementById("tf"),pb=document.getElementById("pb"),a=0,f=-1;
+ph.innerHTML=P.map(function(x,i){return '<button data-i="'+i+'"><b>'+x[0]+'</b><small>'+x[1].split("（")[0].slice(0,9)+'</small></button>'}).join("");
+tf.innerHTML='<button data-t="-1">全部組別</button>'+T.map(function(t,i){return '<button data-t="'+i+'">'+t[0]+'</button>'}).join("");
+function R(){
+  var x=P[a];
+  ph.querySelectorAll("button").forEach(function(b,i){b.classList.toggle("on",i==a)});
+  tf.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",+b.dataset.t==f)});
+  var L=x[2].filter(function(l){return f<0||l[0]==f});
+  pb.innerHTML='<h3 style="margin:6px 0">'+x[0]+'｜'+x[1]+'</h3>'+(L.length?L.map(function(l){return '<div class="ln"><span class="tg" style="--t:var(--t'+l[0]+')">'+T[l[0]][0]+'</span><i>'+(l[1]||"")+'</i><span>'+l[2]+'</span></div>'}).join(""):'<p class="note">此階段該組別無特定單獨動作，請配合指揮中心調度。</p>')+(x[3]?'<div class="nt">'+x[3]+'</div>':'');
+}
+ph.addEventListener("click",function(e){var b=e.target.closest("button");if(b){a=+b.dataset.i;R()}});
+tf.addEventListener("click",function(e){var b=e.target.closest("button");if(b){f=+b.dataset.t;R()}});
+R();
+})();
+</script>
+
+<script>
+/* 表 3.1 災害應變器材檢核表互動篩選 */
+(function(){
+var CATS=["個人防護具","檢修搶救工具","安全管制用工具","通訊聯絡工具","緊急救護用品","疏散及收容用品"];
+var EQ=[
+  [0,"工作手套","20 雙","司令臺後儲藏間","蕭堯駿 主任","已完備",true],
+  [0,"安全帽（防災頭盔）","200 個","各班教室／各處室","各保管人員","已完備",true],
+  [0,"雨具（雨衣雨鞋）","10 套","學務處","蕭堯駿 主任","已完備",true],
+  [0,"哨子（警笛）","120 個","各教室防災包","各班導師／人員","已完備",true],
+  [1,"移動式柴油發電機","1 臺","司令臺後儲藏間","林政賢 組長","已完備（定期測試油量與啟動）",true],
+  [1,"破壞工具組（鏟子等）","2 組","總務處儲藏室","總務處","已完備",true],
+  [1,"挖掘工具","2 支","總務處儲藏室","總務處","已完備",true],
+  [1,"緊急照明燈","173 組","各棟大樓樓層出入口","林政賢 組長","已完備（全校各棟定期安檢）",true],
+  [1,"推水器","10 支","各掃具間","郭宸同 組長","已完備",true],
+  [1,"乾粉滅火器（ABC）","101 支","各樓層走廊及出入口","林政賢 組長","已完備（含廚房 T10×3、T20×2）",true],
+  [1,"萬用鑰匙","2 組","總務處","林政賢 組長","已完備",true],
+  [1,"備用接頭管線等","2 組","總務處儲藏室","林政賢 組長","已完備",true],
+  [2,"警示指揮棒","6 組","學務處","蕭堯駿 主任","已完備",true],
+  [2,"反光型指揮背心","20 件","學務處","蕭堯駿 主任","已完備",true],
+  [2,"強光手電筒","2 支","司令臺後儲藏間","蕭堯駿 主任","已完備",true],
+  [2,"交通警戒錐","50 只","學務處","蕭堯駿 主任","已完備",true],
+  [2,"攜帶式揚聲器（大聲公）","2 個","司令臺後儲藏間","蕭堯駿 主任","已完備",true],
+  [2,"校園監視器系統","5 臺","總務處／警衛室","朱桓顯 主任","已完備",true],
+  [2,"夜間警示燈","0 組","學務處／總務處","蕭堯駿 主任","需補強：列為本年度預算採購",false],
+  [3,"無線電對講機","12 支","學務處","蕭堯駿 主任","已完備（各應變組配發）",true],
+  [3,"行動電話（手機）","200 支","全校教職員工隨身","各教職員工","已完備（建立緊急聯絡群組）",true],
+  [3,"緊急防災收音機","2 臺","學務處","蕭堯駿 主任","已完備",true],
+  [4,"自動體外心臟電擊去顫器（AED）","1 組","教學大樓 1F 健康中心外","黃秀惠 護理師","已完備（安心場所認證維護）",true],
+  [4,"緊急急救箱","1 組","教學大樓 1F 健康中心","黃秀惠 護理師","已完備",true],
+  [4,"攜帶式氧氣筒／瓶","1 個","教學大樓 1F 健康中心","黃秀惠 護理師","已完備",true],
+  [4,"保暖用大毛毯／電熱毯","1 件","教學大樓 1F 健康中心","黃秀惠 護理師","已完備",true],
+  [4,"骨折固定板","1 個","教學大樓 1F 健康中心","黃秀惠 護理師","已完備",true],
+  [4,"長背板加頭部固定器擔架","1 個","教學大樓 1F 健康中心","黃秀惠 護理師","已完備",true],
+  [4,"三角巾／繃帶／冷熱敷袋","1 批（敷袋3個）","教學大樓 1F 健康中心","黃秀惠 護理師","已完備",true],
+  [4,"額溫槍／耳溫槍","80 支","健康中心＆各班","黃秀惠 護理師","已完備",true],
+  [4,"醫用口罩／酒精／消毒水","口罩1萬個、酒精60瓶、消毒水10桶","健康中心及旁儲藏室","黃秀惠 護理師","已完備（防疫與環境消毒儲備）",true],
+  [5,"備用緊急輪椅","2 個","教學大樓 1F 健康中心","黃秀惠 護理師","已完備（支援傷患與身障生疏散）",true],
+  [5,"大型炊事帳（救護站/收容用）","5 組","南棟 1F 體育器材室","周偉明 組長","已完備",true]
+];
+var ef=document.getElementById("eq-filter"),eb=document.getElementById("eq-tbody"),curCat=-1;
+ef.innerHTML='<button class="on" data-c="-1">全部器材（'+EQ.length+'項）</button>'+CATS.map(function(c,i){
+  return '<button data-c="'+i+'">'+c+'</button>';
+}).join("");
+function renderEq(){
+  ef.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",+b.dataset.c==curCat)});
+  var list=EQ.filter(function(x){return curCat<0||x[0]==curCat});
+  eb.innerHTML=list.map(function(x){
+    return '<tr><td>'+CATS[x[0]]+'</td><td><b>'+x[1]+'</b></td><td>'+x[2]+'</td><td>'+x[3]+'</td><td>'+x[4]+'</td><td class="'+(x[6]?'ok':'warn')+'">'+(x[6]?'✓ ':'⚠ ')+x[5]+'</td></tr>';
+  }).join("");
+}
+ef.addEventListener("click",function(e){var b=e.target.closest("button");if(b){curCat=+b.dataset.c;renderEq()}});
+renderEq();
+})();
+</script>
+
+<div id="lb"><img alt="放大檢視圖片"></div>
+<script>
+(function(){var L=document.getElementById("lb"),I=L.querySelector("img");document.addEventListener("click",function(e){var z=e.target.closest(".zm");if(z){I.src=z.src;L.classList.add("on")}else if(e.target.closest("#lb")){L.classList.remove("on")}})})();
+</script>
+</body>
+</html>
