@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>校園災害防救計畫</title>
+<style>
+:root{--bg:#faf6ec;--card:#fff;--ink:#2b2418;--mute:#6f6553;--line:#e6dcc4;--amb:#b8741a;--amb2:#f3d9a4;--grn:#5f7a3a;--grn2:#dfe8cc;--red:#b4452f;--red2:#f4d3ca;--blu:#2f5d7c;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17140e;--card:#221d14;--ink:#f1e9d8;--mute:#b3a88f;--line:#3a3222;--amb:#e0a24a;--amb2:#4a3615;--grn:#9dbb70;--grn2:#2c3820;--red:#ef8a74;--red2:#4a2219;--blu:#7fb2d4}}
+:root[data-theme="dark"]{--bg:#17140e;--card:#221d14;--ink:#f1e9d8;--mute:#b3a88f;--line:#3a3222;--amb:#e0a24a;--amb2:#4a3615;--grn:#9dbb70;--grn2:#2c3820;--red:#ef8a74;--red2:#4a2219;--blu:#7fb2d4}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 52px);scroll-behavior:smooth;overflow-x:clip}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 12px}
+nav a{flex:none;color:var(--ink);text-decoration:none;font-size:14px;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);transition:all .15s}
+nav a:hover{border-color:var(--amb);color:var(--amb)}
+.wrap{max-width:960px;margin:0 auto;padding:0 14px 40px}
+header{padding:22px 0 10px}
+header small{display:block;color:var(--amb);font-size:13px;font-weight:700;letter-spacing:.06em}
+h1{font-size:clamp(22px,3vw,30px);line-height:1.28;letter-spacing:.01em;margin:8px 0 14px;max-width:32em}
+@media(max-width:640px){header{padding:18px 0 8px}h1{font-size:clamp(22px,6vw,26px);line-height:1.32;margin-bottom:12px}}
+header p{margin:4px 0;color:var(--mute);font-size:14px}
+h2{font-size:22px;margin:38px 0 12px;display:flex;gap:10px;align-items:center}
+h2 b{background:var(--amb);color:#fff;border-radius:8px;padding:0 10px;font-size:18px}
+h3{font-size:16px;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:16px 0}
+@media(min-width:640px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;border-top:4px solid var(--amb)}
+.kpi:nth-child(2){border-top-color:var(--grn)}.kpi:nth-child(3){border-top-color:var(--blu)}.kpi:nth-child(4){border-top-color:var(--red)}
+.kpi b{display:block;font-size:28px;line-height:1.15}.kpi span{font-size:13px;color:var(--mute)}
+.tl{margin:0;padding:0 0 0 18px;border-left:3px solid var(--amb2);list-style:none}
+.tl li{position:relative;padding:0 0 10px 10px;font-size:15px}
+.tl li::before{content:"";position:absolute;left:-25px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--amb)}
+.tl b{color:var(--amb)}
+.row{display:grid;grid-template-columns:92px 1fr 64px;gap:8px;align-items:center;margin:7px 0;font-size:14px}
+.row i{font-style:normal;text-align:right;font-weight:700}
+.bar{height:16px;border-radius:8px;background:var(--line);overflow:hidden;display:flex}
+.bar span{display:block;height:100%}
+.sg{display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;margin:9px 0;font-size:14px}
+.sg .bar{height:26px;border-radius:6px}
+.sg .bar span{color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mute);margin:6px 0}
+.lg s{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px;text-decoration:none}
+.c1{background:var(--grn)}.c2{background:var(--amb)}.c3{background:var(--red)}.c4{background:var(--blu)}
+.two{display:grid;gap:12px}@media(min-width:720px){.two{grid-template-columns:1fr 1fr}}
+.steps{display:grid;gap:8px;margin:0;padding:0;list-style:none;counter-reset:s}@media(min-width:1100px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}}
+.steps li{counter-increment:s;padding-left:34px;position:relative;font-size:14.5px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--amb);color:#fff;text-align:center;line-height:24px;font-size:13px;font-weight:700}
+.flow-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}.flow-steps li{padding:10px 12px 10px 44px;background:var(--bg);border:1px solid var(--line);border-radius:10px;line-height:1.55;min-height:48px}.flow-steps li::before{left:10px;top:10px}
+@media(max-width:719px){.flow-steps{grid-template-columns:minmax(0,1fr)}}
+.sc{background:var(--amb2);border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:15px}
+.sc b{font-size:18px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:8px}
+.cl{border:2px solid transparent;border-radius:10px;padding:9px 8px;text-align:center;cursor:pointer;color:#fff;font:inherit;line-height:1.3;transition:transform .12s}
+.cl:hover{transform:translateY(-1px)}
+.cl b{display:block;font-size:15px}.cl span{font-size:12px;opacity:.95;display:block;margin-top:2px}
+.cl.sel{border-color:var(--ink);box-shadow:0 0 0 2px var(--amb2)}
+.cl.l{background:var(--grn)}.cl.m{background:var(--amb)}.cl.h{background:var(--red)}.cl.b{background:var(--blu)}
+#det{background:var(--card);border:1px dashed var(--amb);border-radius:12px;padding:14px 16px;font-size:14.5px;min-height:92px;margin-top:12px}
+.btn{display:inline-block;background:var(--amb);color:#fff;text-decoration:none;border-radius:10px;padding:9px 16px;font-size:15px;margin:4px 6px 4px 0;font-weight:600}
+.btn.o{background:transparent;color:var(--amb);border:1px solid var(--amb)}
+.ramp-card{border-top:4px solid var(--amb);padding:18px}
+.ramp-card-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.ramp-card-head h3{font-size:20px;line-height:1.4;margin:0}
+.ramp-label{flex:none;background:var(--amb2);color:var(--ink);font-size:13px;font-weight:700;border-radius:99px;padding:3px 10px}
+.sw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:300px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--grn2);color:var(--ink)}
+.ok{color:var(--grn);font-weight:700}
+.warn{color:var(--red);font-weight:700}
+.note{font-size:12.5px;color:var(--mute);margin:8px 0 0}
+.src{display:grid;gap:8px}.src a,.src div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);font-size:14.5px}.src a::after{content:"開啟 ↗";flex:none;color:var(--amb);font-size:13px;font-weight:700}.src small{display:block;color:var(--mute);font-size:12.5px}
+.zm{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);cursor:zoom-in;display:block}#lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:12px;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;object-fit:contain}
+.k5{display:grid;gap:8px 18px;font-size:14.5px}@media(min-width:640px){.k5{grid-template-columns:1fr 1fr}}.k5 b{color:var(--amb)}
+.tm{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}@media(min-width:640px){.tm{grid-template-columns:repeat(3,1fr)}}
+.tm div{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14px;border-left:5px solid var(--t)}.tm small{color:var(--mute)}
+.ph,.tf{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px}.ph button,.tf button{flex:none;font:inherit;font-size:13.5px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:5px 12px;cursor:pointer;line-height:1.3}
+.ph button small{display:block;color:var(--mute);font-size:11.5px}.ph button.on,.tf button.on{background:var(--amb);border-color:var(--amb);color:#fff}.ph button.on small{color:#fff}
+.ln{display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px}.ln:last-child{border:0}
+.tg{flex:none;width:64px;text-align:center;color:#fff;border-radius:6px;font-size:12.5px;padding:2px 0;height:fit-content;background:var(--t)}.ln i{flex:none;width:48px;font-style:normal;color:var(--mute);font-size:12.5px;padding-top:2px}
+.nt{background:var(--amb2);border-radius:10px;padding:8px 12px;font-size:13.5px;margin-top:8px}
+.img-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:10px}
+.img-box{border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--bg)}
+.img-box small{display:block;font-weight:700;margin-bottom:5px;color:var(--ink);font-size:13px}
+.empty-state{text-align:center;padding:60px 20px;color:var(--mute)}
+:root{--t0:#b4452f;--t1:#5f7a3a;--t2:#b8741a;--t3:#2f5d7c;--t4:#7a5c9e;--t5:#c0547a;--t6:#6f6553}
+footer{margin-top:30px;font-size:12.5px;color:var(--mute);text-align:center}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#s1">壹 基本資料與環境</a>
+  <a href="#s2">貳 人員與防救組織</a>
+  <a href="#s3">參 防災地圖與應變</a>
+  <a href="#script">應變流程腳本</a>
+  <a href="#buildings">校舍與平面圖</a>
+  <a href="#s4">肆 整備與復原措施</a>
+  <a href="#s5">伍 原始文件</a>
+</nav>
+<div class="wrap" id="app">
+  <div class="empty-state">尚未載入計畫書資料。請透過計畫書生成器上傳 PDF，或傳入 <code>PLAN_DATA</code>。</div>
+</div>
+<div id="lb"><img alt="放大檢視圖片"></div>
+
+<script id="plan-data-seed" type="application/json">null</script>
+<script>
+(function(){
+  const esc = (s) => String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+  function resolveAsset(ref, assets) {
+    if (!ref) return "";
+    if (assets && assets[ref]) return assets[ref];
+    return ref;
+  }
+
+  function renderPlan(D) {
+    if (!D || !D.meta) return;
+    const assets = D.assets || {};
+    const m = D.meta || {};
+    const L = D.leaders || {};
+    const kpi = D.kpis || {};
+    const app = document.getElementById("app");
+
+    document.title = (m.year ? m.year + "年度 " : "") + (m.schoolName || "校園") + " 校園災害防救計畫";
+
+    const pdfLinkHtml = (D.hasPdf !== false && m.pdfUrl)
+      ? `<a class="btn" href="${esc(m.pdfUrl)}" target="_blank" rel="noopener">開啟原始防災計畫書（PDF）</a>`
+      : "";
+
+    const headerHtml = `
+<header>
+  ${pdfLinkHtml ? `<p style="margin:0 0 10px">${pdfLinkHtml}</p>` : ""}
+  <small>${esc(m.fullName || m.schoolName || "")}・校園災害防救計畫書${m.versionInfo ? "（" + esc(m.versionInfo) + "）" : ""}</small>
+  <h1>${esc(m.year ? m.year + "年度 " : "")}${esc(m.fullName || m.schoolName || "校園")} 校園災害防救計畫</h1>
+  <section class="card" id="attendees" style="margin:12px 0 14px">
+    <h2 style="font-size:20px;margin:0 0 12px">校園災害防救核心幹部與應變編組</h2>
+    <div class="two">
+      <div>
+        <h3 style="color:var(--amb);margin:0 0 6px">防救災指揮與業務核心</h3>
+        <ol style="margin:0;padding-left:1.35em">
+          ${(L.coreList || []).map(x => `<li><b>${esc(x.role)}</b>｜${esc(x.detail)}</li>`).join("")}
+        </ol>
+      </div>
+      <div>
+        <h3 style="color:var(--amb);margin:0 0 6px">校園緊急應變小組各組組長</h3>
+        <ul style="margin:0;padding-left:1.35em">
+          ${(D.teamsSummary || []).map(t => `<li><b>${esc(t.name)}</b>｜${esc(t.leader)}${t.note ? "（" + esc(t.note) + "）" : ""}</li>`).join("")}
+        </ul>
+      </div>
+    </div>
+  </section>
+  <p>${m.address ? "學校地址：" + esc(m.address) : ""}${m.coordinates ? "（" + esc(m.coordinates) + "）" : ""}${m.lastCheckDate ? "｜修訂／安檢日期：" + esc(m.lastCheckDate) : ""}</p>
+  <div class="kpis">
+    <div class="kpi"><b>${esc(kpi.staffTotal || "-")}</b><span>${esc(kpi.staffDetail || "教職員工總數")}</span></div>
+    <div class="kpi"><b>${esc(kpi.studentTotal || "-")}</b><span>${esc(kpi.studentDetail || "在校學生總數")}</span></div>
+    <div class="kpi"><b>${esc(kpi.classTotal || "-")}</b><span>${esc(kpi.classDetail || "總班級數")}</span></div>
+    <div class="kpi"><b>${esc(kpi.buildingSummary || "-")}</b><span>${esc(kpi.buildingDetail || "校園建築規模")}</span></div>
+  </div>
+</header>`;
+
+    const mapCard = (title, imgKey, note) => {
+      const src = resolveAsset(imgKey, assets);
+      if (!src) return "";
+      return `<div class="card"><h3>${esc(title)}</h3><img class="zm" alt="${esc(title)}" src="${esc(src)}"><p class="note">${esc(note || "點圖片可放大檢視。")}</p></div>`;
+    };
+
+    const pairedMaps1 = [
+      mapCard("圖 2.1 校園周邊道路圖", D.imageSlots?.roadMap, "點圖片可放大檢視周邊道路與警消路線。"),
+      mapCard("圖 2.2 校園平面配置圖", D.imageSlots?.campusLayout, "點圖片可放大檢視校舍與各空間配置。")
+    ].filter(Boolean).join("");
+
+    const pairedMaps2 = [
+      mapCard("校園地震災害潛勢圖", D.imageSlots?.hazardEarthquake, "點圖片可放大檢視地震與斷層／液化潛勢。"),
+      mapCard("校園淹水災害潛勢圖", D.imageSlots?.hazardFlood, "點圖片可放大檢視強降雨積淹水潛勢。")
+    ].filter(Boolean).join("");
+
+    const s1Html = `
+<h2 id="s1"><b>壹</b>學校基本資料與潛在災害評估</h2>
+<div class="two">
+  <div class="card">
+    <h3>學校環境與基本規模</h3>
+    <div class="k5" style="grid-template-columns:1fr">
+      <div><b>學校全銜</b>　${esc(m.fullName || m.schoolName)}</div>
+      ${m.address ? `<div><b>校址與座標</b>　${esc(m.address)}${m.coordinates ? "（" + esc(m.coordinates) + "）" : ""}</div>` : ""}
+      ${m.geography ? `<div><b>地形與周邊</b>　${esc(m.geography)}</div>` : ""}
+      ${m.extraInfo ? `<div><b>交通與人力</b>　${esc(m.extraInfo)}</div>` : ""}
+      ${m.hazardTypes ? `<div><b>潛在災害別</b>　<b style="color:var(--red)">${esc(m.hazardTypes)}</b></div>` : ""}
+    </div>
+  </div>
+  <div class="card">
+    <h3>校園災害防救計畫修訂歷程</h3>
+    <ul class="tl">
+      ${(D.revisionHistory || []).map(r => `<li><b>${esc(r.date)}${r.version ? "（" + esc(r.version) + "）" : ""}</b> ${esc(r.description)}</li>`).join("")}
+    </ul>
+  </div>
+</div>
+${pairedMaps1 ? `<div class="two">${pairedMaps1}</div>` : ""}
+${pairedMaps2 ? `<div class="two">${pairedMaps2}</div>` : ""}
+<div class="card">
+  <h3>歷年校園災害事件紀錄與復原情形</h3>
+  <div class="sw"><table>
+    <thead><tr><th>發生日期</th><th>災害類型</th><th>發生地點</th><th>事件概述與受災情形</th><th>人員傷亡</th><th>處置與復原情形</th></tr></thead>
+    <tbody>
+      ${(D.hazardHistory && D.hazardHistory.length)
+        ? D.hazardHistory.map(h => `<tr><td><b>${esc(h.date)}</b></td><td>${esc(h.type)}</td><td>${esc(h.location)}</td><td>${esc(h.summary)}</td><td class="ok">${esc(h.casualties || "0")}</td><td>${esc(h.recovery)}</td></tr>`).join("")
+        : `<tr><td colspan="6" class="note">計畫書未記載重大災害損失事件，或無傷亡紀錄。</td></tr>`}
+    </tbody>
+  </table></div>
+</div>`;
+
+    const s2TopMaps = [
+      mapCard("校園災害防救組織架構圖", D.imageSlots?.orgChart, "點圖片可放大。平時為減災整備委員會，災時轉換為緊急應變小組。")
+    ].filter(Boolean).join("");
+
+    const s2Html = `
+<h2 id="s2"><b>貳</b>人員結構與校園災害防救組織</h2>
+<div class="two">
+  <div class="card"><h3>教職員工與支援人力</h3><div id="staff"></div></div>
+  <div class="card"><h3>全校學生結構與學制分布</h3>
+    <div id="grp"></div>
+    ${kpi.classDetail ? `<p class="note">${esc(kpi.classDetail)}</p>` : ""}
+  </div>
+</div>
+<div class="two">
+  ${s2TopMaps}
+  <div class="card" ${s2TopMaps ? "" : 'style="grid-column:1/-1"'}>
+    <h3>平時減災與整備工作權責分工表</h3>
+    <div class="sw"><table>
+      <thead><tr><th>工作事項</th><th>主責單位</th><th>協助單位</th></tr></thead>
+      <tbody>
+        ${(D.peaceResponsibilities || []).map((p,i) => `<tr><td>${i+1}. ${esc(p.task)}</td><td><b>${esc(p.lead)}</b></td><td>${esc(p.support)}</td></tr>`).join("")}
+      </tbody>
+    </table></div>
+  </div>
+</div>
+<div class="card">
+  <h3>校園災害緊急應變小組編組概要</h3>
+  <div class="tm">
+    ${(D.teamsSummary || []).map((t,i) => `<div style="--t:var(--t${i % 6})"><b>${esc(t.name)}</b>${t.countLabel ? "（" + esc(t.countLabel) + "）" : ""}<br>${esc(t.leader)}<br><small>${esc(t.note || "")}</small></div>`).join("")}
+  </div>
+  <h3 style="margin-top:16px">緊急應變小組成員清冊與所在位置（點選組別篩選）</h3>
+  <div class="tf" id="team-filter"></div>
+  <div class="sw"><table id="team-table">
+    <thead><tr><th>組別</th><th>組內職務</th><th>職稱與姓名</th><th>平時所在建築／樓層</th><th>災時負責工作項目</th></tr></thead>
+    <tbody id="team-tbody"></tbody>
+  </table></div>
+</div>`;
+
+    const pr = D.principles || {};
+    const disasterMapCard = mapCard("校園防災（疏散）地圖", D.imageSlots?.disasterMap, "點圖片可放大檢視室外集合地點、疏散方向、防災設施與通報聯絡資訊。");
+    const flowMaps = [
+      mapCard("校園災害應變流程圖", D.imageSlots?.responseFlow, "點圖片可放大檢視災害初期、應變階段與復原階段作業流程。"),
+      mapCard("災害通報流程圖", D.imageSlots?.reportFlow, "點圖片可放大檢視內部與外部通報架構。")
+    ].filter(Boolean).join("");
+
+    const s3Html = `
+<h2 id="s3"><b>參</b>防災地圖、逃生路線與應變流程</h2>
+<div class="sc"><b>各類災害避難核心原則</b>　<b style="color:var(--red)">地震</b>：${esc(pr.earthquake || "先避難（趴下、掩護、穩住），再疏散")} ｜ <b style="color:var(--blu)">淹水</b>：${esc(pr.flood || "垂直避難（往高樓層移動）")} ｜ <b style="color:var(--grn)">雨天／備案</b>：${esc(pr.rainBackup || "視建築安全依指示至室內指定避難場所集結。")}</div>
+<div class="card flow-card"><h3>校園災害應變核心步驟</h3><ol class="steps flow-steps">
+  ${(pr.coreSteps || []).map(st => `<li><b>${esc(st.title)}</b>：${esc(st.desc)}</li>`).join("")}
+</ol></div>
+<h3 id="script" style="font-size:19px;margin:24px 0 8px">災害應變流程腳本（互動時間軸）</h3>
+<div class="card"><h3>應變情境與通報基準設定</h3><div class="k5">
+  ${(D.drillSettings || []).map(ds => `<div><b>${esc(ds.label)}</b>　${esc(ds.value)}</div>`).join("")}
+</div></div>
+<div class="card"><h3>【校園災害應變各階段行動腳本】各階段應變作為（選階段，並可篩選單一組別）</h3>
+  <div class="ph" id="ph"></div><div class="tf" id="tf"></div>
+  <div id="pb"></div>
+</div>
+${disasterMapCard}
+${flowMaps ? `<div class="two">${flowMaps}</div>` : ""}
+<div class="card" id="buildings">
+  <h3>校園各棟校舍安全資料與樓層平面圖（點選建築切換）</h3>
+  <div class="lg">
+    <span><s class="c1"></s>指定室內避難場所</span>
+    <span><s class="c4"></s>主要教學／行政校舍</span>
+    <span><s class="c2"></s>已完成補強／其他建築</span>
+    <span><s class="c3"></s>高風險／廚房或特殊設施</span>
+  </div>
+  <div id="floors"></div>
+  <div id="det"></div>
+  <div id="fp" style="margin-top:14px"></div>
+</div>`;
+
+    const prepMaps = [
+      mapCard("減災與整備工作架構圖", D.imageSlots?.prepStructure, "點圖片可放大。"),
+      mapCard("校園環境安全自主調查流程圖", D.imageSlots?.surveyFlow, "點圖片可放大。")
+    ].filter(Boolean).join("");
+
+    const s4Html = `
+<h2 id="s4"><b>肆</b>減災整備、應變器材檢核與復原措施</h2>
+${prepMaps ? `<div class="two">${prepMaps}</div>` : ""}
+${(D.equipmentHighlights && D.equipmentHighlights.length) ? `
+<div class="card ramp-card">
+  <div class="ramp-card-head"><span class="ramp-label">年度整備與待改善重點</span><h3>災害應變器材盤點與加強事項</h3></div>
+  <div class="sw"><table>
+    <thead><tr><th>重點項目</th><th>現況與說明</th><th>負責單位／狀態</th></tr></thead>
+    <tbody>
+      ${D.equipmentHighlights.map(eh => `<tr><td><b>${esc(eh.category)}</b></td><td>${esc(eh.detail)}</td><td class="${eh.isOk ? "ok" : "warn"}">${esc(eh.status)}</td></tr>`).join("")}
+    </tbody>
+  </table></div>
+</div>` : ""}
+<div class="card">
+  <h3>校園災害應變器材檢核清冊</h3>
+  <div class="tf" id="eq-filter"></div>
+  <div class="sw"><table>
+    <thead><tr><th>器材類別</th><th>器材名稱</th><th>數量與單位</th><th>存放位置</th><th>保管／負責人</th><th>檢核狀態與備註</th></tr></thead>
+    <tbody id="eq-tbody"></tbody>
+  </table></div>
+</div>
+<div class="two">
+  <div class="card">
+    <h3>外部支援與救災單位聯絡清冊</h3>
+    <div class="sw"><table>
+      <thead><tr><th>單位名稱</th><th>聯絡電話</th><th>備註／車程距離</th></tr></thead>
+      <tbody>
+        ${(D.externalContacts || []).map(c => `<tr><td><b>${esc(c.unit)}</b></td><td>${esc(c.phone)}</td><td>${esc(c.note)}</td></tr>`).join("")}
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>災後心理輔導資源與復原重建機制</h3>
+    <div class="sw"><table>
+      <thead><tr><th>機構名稱／復原項目</th><th>聯絡電話／執行內容</th></tr></thead>
+      <tbody>
+        ${(D.counselingResources || []).map(r => `<tr><td><b>${esc(r.name)}</b></td><td>${esc(r.detail)}</td></tr>`).join("")}
+      </tbody>
+    </table></div>
+  </div>
+</div>`;
+
+    const extraImgs = (D.extraImages || []).filter(ei => resolveAsset(ei.imgKey, assets));
+    const s5Html = `
+<h2 id="s5"><b>伍</b>原始文件與防災資訊網</h2>
+<div class="card">
+  <p class="note" style="margin:0 0 10px">如需查閱原始計畫書、高解析度防災地圖或政府公開防災平台，可點選下列連結。</p>
+  <div class="src">
+    ${(D.hasPdf !== false && m.pdfUrl) ? `<a href="${esc(m.pdfUrl)}" target="_blank" rel="noopener"><span><b>${esc(m.schoolName)} 校園災害防救計畫書（原始 PDF）</b><small>${esc(m.versionInfo || "完整計畫書本文")}</small></span></a>` : ""}
+    ${D.imageSlots?.disasterMap ? `<a href="${esc(resolveAsset(D.imageSlots.disasterMap, assets))}" target="_blank" rel="noopener"><span><b>校園防災地圖原圖</b><small>含疏散路線、集合地點與通報電話</small></span></a>` : ""}
+    ${D.imageSlots?.campusLayout ? `<a href="${esc(resolveAsset(D.imageSlots.campusLayout, assets))}" target="_blank" rel="noopener"><span><b>校園平面配置圖原圖</b><small>各棟校舍空間配置詳圖</small></span></a>` : ""}
+    <a href="https://disaster.moe.edu.tw/" target="_blank" rel="noopener"><span><b>教育部防災教育資訊網</b><small>校園防災計畫與防災教學資源</small></span></a>
+    <a href="https://www.1991.tw/" target="_blank" rel="noopener"><span><b>內政部消防署 1991 報平安網路留言平臺</b><small>災時家庭與學校雙向報平安專線</small></span></a>
+    <a href="https://dmap.ncdr.nat.gov.tw/" target="_blank" rel="noopener"><span><b>國家災害防救科技中心（NCDR）災害潛勢地圖網站</b><small>地震、淹水、坡地與海嘯潛勢查詢</small></span></a>
+  </div>
+</div>
+${extraImgs.length ? `<div class="card"><h3>計畫書其餘擷取圖表一覽</h3><div class="img-grid">${extraImgs.map(ei => `<div class="img-box"><small>${esc(ei.label)}</small><img class="zm" alt="${esc(ei.label)}" src="${esc(resolveAsset(ei.imgKey, assets))}"></div>`).join("")}</div></div>` : ""}
+<footer>${esc(m.fullName || m.schoolName || "")}・${esc(m.year ? m.year + "年度" : "")}校園災害防救計畫互動資訊網</footer>`;
+
+    app.innerHTML = headerHtml + s1Html + s2Html + s3Html + s4Html + s5Html;
+
+    // 1. Staff bars
+    const staffArr = D.staffBreakdown || [];
+    const maxStaff = Math.max(1, ...staffArr.map(s => Number(s.count) || 0));
+    document.getElementById("staff").innerHTML = staffArr.map(s =>
+      `<div class="row"><span>${esc(s.label)}</span><div class="bar"><span class="c1" style="width:${Math.min(100, Math.round((Number(s.count)||0)/maxStaff*100))}%"></span></div><i>${esc(s.count)} 人</i></div>${s.note ? `<div class="note" style="margin:-4px 0 6px 100px">${esc(s.note)}</div>` : ""}`
+    ).join("");
+
+    // 2. Student breakdown bars
+    const stuArr = D.studentBreakdown || [];
+    const maxStu = Math.max(10, ...stuArr.map(s => Number(s.count) || 0));
+    document.getElementById("grp").innerHTML = stuArr.map((s, idx) => {
+      const v = Number(s.count) || 0;
+      const c = s.colorIndex || ((idx % 3) + 1);
+      const w = Math.max(12, Math.round(Math.log10(v + 1) / Math.log10(maxStu + 1) * 100));
+      return `<div class="sg"><span>${esc(s.label)}</span><div class="bar"><span class="c${c}" style="width:${w}%">${esc(v)} 人</span></div></div>${s.note ? `<div class="note" style="margin:-5px 0 6px 88px">${esc(s.note)}</div>` : ""}`;
+    }).join("");
+
+    // 3. Team members filter
+    const teamNames = (D.teamsSummary || []).map(t => t.name);
+    const members = D.teamMembers || [];
+    const tfEl = document.getElementById("team-filter"), tbEl = document.getElementById("team-tbody");
+    let curTeam = -1;
+    tfEl.innerHTML = `<button class="on" data-t="-1">全部（${members.length}筆）</button>` + teamNames.map((n, i) => {
+      const cnt = members.filter(m => m.teamIndex == i).length;
+      return `<button data-t="${i}">${esc(n)}（${cnt}）</button>`;
+    }).join("");
+    function renderTeamTable() {
+      tfEl.querySelectorAll("button").forEach(b => b.classList.toggle("on", +b.dataset.t === curTeam));
+      const list = members.filter(m => curTeam < 0 || m.teamIndex == curTeam);
+      tbEl.innerHTML = list.map(m =>
+        `<tr><td><span class="tg" style="display:inline-block;--t:var(--t${(m.teamIndex||0)%6})">${esc(teamNames[m.teamIndex] || "其他組")}</span></td><td><b>${esc(m.role)}</b></td><td>${esc(m.titleName)}</td><td>${esc(m.location)}</td><td>${esc(m.duty)}</td></tr>`
+      ).join("") || `<tr><td colspan="5" class="note">無成員資料</td></tr>`;
+    }
+    tfEl.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { curTeam = +b.dataset.t; renderTeamTable(); } });
+    renderTeamTable();
+
+    // 4. Buildings viewer
+    const buildings = D.buildings || [];
+    const F = document.getElementById("floors"), Det = document.getElementById("det"), FP = document.getElementById("fp");
+    if (buildings.length) {
+      F.innerHTML = `<div class="g">` + buildings.map((b, idx) =>
+        `<button class="cl ${esc(b.colorClass || "b")}${idx===0 ? " sel" : ""}" data-id="${esc(b.id || idx)}"><b>${esc(b.code ? b.code + " " : "")}${esc(b.name)}</b><span>${esc((b.floors || "").split("／")[0])}${b.cap ? "｜容納 " + esc(b.cap) + " 人" : ""}</span></button>`
+      ).join("") + `</div>`;
+      function selectBld(id) {
+        F.querySelectorAll(".cl").forEach(el => el.classList.toggle("sel", el.dataset.id === String(id)));
+        const b = buildings.find((x, i) => String(x.id || i) === String(id)) || buildings[0];
+        Det.innerHTML = `<h3 style="margin:0 0 8px;color:var(--amb)">${esc(b.code ? b.code + " " : "")}${esc(b.name)}（建造年份：${esc(b.year || "-")}｜安檢日期：${esc(b.checkDate || "-")}）</h3>
+          <div class="k5">
+            <div><b>樓層與構造</b>　${esc(b.floors || "-")}｜${esc(b.struct || "-")}</div>
+            <div><b>是否為避難場所</b>　${esc(b.shelter || "-")}</div>
+            <div><b>空間與容納量</b>　空間 ${esc(b.rooms ?? "-")} 間｜容納 <b>${esc(b.cap ?? "-")}</b> 人</div>
+            <div><b>垂直動線與浴廁</b>　樓梯 ${esc(b.stairs ?? "-")} 座、電梯 ${esc(b.elev ?? "-")} 座｜一般廁所 ${esc(b.toilet ?? "-")} 間、無障礙 ${esc(b.accToilet ?? "-")} 間</div>
+            <div style="grid-column:1/-1"><b>防救災與避難設備</b>　${esc(b.equip || "-")}</div>
+            <div style="grid-column:1/-1"><b>結構與走廊特性</b>　${esc(b.corridor || "-")}</div>
+            <div style="grid-column:1/-1"><b>各樓層空間用途</b>　${esc(b.usage || "-")}</div>
+          </div>`;
+        const bImgs = (b.imgs || []).filter(im => resolveAsset(im.imgKey || im[1], assets));
+        FP.innerHTML = bImgs.length
+          ? `<h3 style="margin:0 0 6px">${esc(b.name)} 外觀照片與平面圖（共 ${bImgs.length} 張，點擊放大）</h3><div class="img-grid">` +
+            bImgs.map(im => {
+              const label = im.label || im[0];
+              const src = resolveAsset(im.imgKey || im[1], assets);
+              return `<div class="img-box"><small>${esc(label)}</small><img class="zm" alt="${esc(b.name)} ${esc(label)}" src="${esc(src)}"></div>`;
+            }).join("") + `</div>`
+          : `<p class="note">此建物尚無對應平面圖檔，可於生成器之「圖片分配」分頁手動指定。</p>`;
+      }
+      F.addEventListener("click", e => { const btn = e.target.closest(".cl"); if (btn) selectBld(btn.dataset.id); });
+      selectBld(buildings[0].id || 0);
+    } else {
+      Det.innerHTML = `<p class="note">未偵測到校舍資料。</p>`;
+    }
+
+    // 5. Interactive response timeline
+    const shortTeams = teamNames.map(n => n.replace("組","")).concat(["各班/其他"]);
+    const phases = D.timelinePhases || [];
+    const phEl = document.getElementById("ph"), tf2El = document.getElementById("tf"), pbEl = document.getElementById("pb");
+    if (phases.length) {
+      let curPh = 0, curF = -1;
+      phEl.innerHTML = phases.map((x, i) => `<button data-i="${i}"><b>${esc(x.phase)}</b><small>${esc((x.title||"").split("（")[0].slice(0,9))}</small></button>`).join("");
+      tf2El.innerHTML = `<button data-t="-1">全部組別</button>` + shortTeams.map((t, i) => `<button data-t="${i}">${esc(t)}</button>`).join("");
+      function renderTimeline() {
+        const x = phases[curPh];
+        phEl.querySelectorAll("button").forEach((b, i) => b.classList.toggle("on", i === curPh));
+        tf2El.querySelectorAll("button").forEach(b => b.classList.toggle("on", +b.dataset.t === curF));
+        const actions = (x.actions || []).filter(a => curF < 0 || a.teamIndex == curF);
+        pbEl.innerHTML = `<h3 style="margin:6px 0">${esc(x.phase)}｜${esc(x.title)}</h3>` +
+          (actions.length ? actions.map(a => {
+            const ti = a.teamIndex ?? (shortTeams.length - 1);
+            return `<div class="ln"><span class="tg" style="--t:var(--t${ti % 7})">${esc(shortTeams[ti] || "其他")}</span><i>${esc(a.stepCode || "")}</i><span>${esc(a.text)}</span></div>`;
+          }).join("") : `<p class="note">此階段該組別無特定單獨動作。</p>`) +
+          (x.note ? `<div class="nt">${esc(x.note)}</div>` : "");
+      }
+      phEl.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { curPh = +b.dataset.i; renderTimeline(); } });
+      tf2El.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { curF = +b.dataset.t; renderTimeline(); } });
+      renderTimeline();
+    }
+
+    // 6. Equipment checklist filter
+    const cats = D.equipmentCategories || ["個人防護具","檢修搶救工具","安全管制用工具","通訊聯絡工具","緊急救護用品","疏散及收容用品"];
+    const eqList = D.equipmentList || [];
+    const efEl = document.getElementById("eq-filter"), ebEl = document.getElementById("eq-tbody");
+    let curCat = -1;
+    efEl.innerHTML = `<button class="on" data-c="-1">全部器材（${eqList.length}項）</button>` + cats.map((c, i) => `<button data-c="${i}">${esc(c)}</button>`).join("");
+    function renderEq() {
+      efEl.querySelectorAll("button").forEach(b => b.classList.toggle("on", +b.dataset.c === curCat));
+      const list = eqList.filter(x => curCat < 0 || x.catIndex == curCat);
+      ebEl.innerHTML = list.map(x =>
+        `<tr><td>${esc(cats[x.catIndex] || "其他")}</td><td><b>${esc(x.name)}</b></td><td>${esc(x.qty)}</td><td>${esc(x.location)}</td><td>${esc(x.owner)}</td><td class="${x.isOk !== false ? "ok" : "warn"}">${x.isOk !== false ? "✓ " : "⚠ "}${esc(x.statusText)}</td></tr>`
+      ).join("") || `<tr><td colspan="6" class="note">無對應器材資料</td></tr>`;
+    }
+    efEl.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { curCat = +b.dataset.c; renderEq(); } });
+    renderEq();
+  }
+
+  // Lightbox
+  const L = document.getElementById("lb"), I = L.querySelector("img");
+  document.addEventListener("click", e => {
+    const z = e.target.closest(".zm");
+    if (z) { I.src = z.src; L.classList.add("on"); }
+    else if (e.target.closest("#lb")) { L.classList.remove("on"); }
+  });
+
+  // Listen to postMessage from generator.html
+  window.addEventListener("message", e => {
+    if (e.data && e.data.type === "RENDER_PLAN" && e.data.data) {
+      renderPlan(e.data.data);
+    }
+  });
+
+  // Check embedded seed or global PLAN_DATA
+  const seedText = document.getElementById("plan-data-seed")?.textContent;
+  if (window.PLAN_DATA) {
+    renderPlan(window.PLAN_DATA);
+  } else if (seedText && seedText.trim() !== "null") {
+    try { renderPlan(JSON.parse(seedText)); } catch (err) { console.error(err); }
+  }
+})();
+</script>
+</body>
+</html>
